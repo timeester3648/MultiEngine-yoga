@@ -1,0 +1,449 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug Windows|x64">
+      <Configuration>Debug Windows</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug Linux|x64">
+      <Configuration>Debug Linux</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug MacOS|x64">
+      <Configuration>Debug MacOS</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release Windows|x64">
+      <Configuration>Release Windows</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release Linux|x64">
+      <Configuration>Release Linux</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release MacOS|x64">
+      <Configuration>Release MacOS</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Distribution Windows|x64">
+      <Configuration>Distribution Windows</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Distribution Linux|x64">
+      <Configuration>Distribution Linux</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Distribution MacOS|x64">
+      <Configuration>Distribution MacOS</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{354FA17C-2186-A20D-CA72-8810B6881E0F}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>yoga</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Windows|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Linux|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug MacOS|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Windows|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Linux|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release MacOS|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Distribution Windows|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Distribution Linux|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Distribution MacOS|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug Windows|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug Linux|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug MacOS|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release Windows|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release Linux|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release MacOS|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Distribution Windows|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Distribution Linux|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Distribution MacOS|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Windows|x64'">
+    <OutDir>..\..\bin\Windows\Debug\yoga\</OutDir>
+    <IntDir>..\..\bin\intermediate\Windows\Debug\yoga\</IntDir>
+    <TargetName>yoga</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Linux|x64'">
+    <OutDir>..\..\bin\Linux\Debug\yoga\</OutDir>
+    <IntDir>..\..\bin\intermediate\Linux\Debug\yoga\</IntDir>
+    <TargetName>libyoga</TargetName>
+    <TargetExt>.a</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug MacOS|x64'">
+    <OutDir>..\..\bin\MacOS\Debug\yoga\</OutDir>
+    <IntDir>..\..\bin\intermediate\MacOS\Debug\yoga\</IntDir>
+    <TargetName>libyoga</TargetName>
+    <TargetExt>.a</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Windows|x64'">
+    <OutDir>..\..\bin\Windows\Release\yoga\</OutDir>
+    <IntDir>..\..\bin\intermediate\Windows\Release\yoga\</IntDir>
+    <TargetName>yoga</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Linux|x64'">
+    <OutDir>..\..\bin\Linux\Release\yoga\</OutDir>
+    <IntDir>..\..\bin\intermediate\Linux\Release\yoga\</IntDir>
+    <TargetName>libyoga</TargetName>
+    <TargetExt>.a</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release MacOS|x64'">
+    <OutDir>..\..\bin\MacOS\Release\yoga\</OutDir>
+    <IntDir>..\..\bin\intermediate\MacOS\Release\yoga\</IntDir>
+    <TargetName>libyoga</TargetName>
+    <TargetExt>.a</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Distribution Windows|x64'">
+    <OutDir>..\..\bin\Windows\Distribution\yoga\</OutDir>
+    <IntDir>..\..\bin\intermediate\Windows\Distribution\yoga\</IntDir>
+    <TargetName>yoga</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Distribution Linux|x64'">
+    <OutDir>..\..\bin\Linux\Distribution\yoga\</OutDir>
+    <IntDir>..\..\bin\intermediate\Linux\Distribution\yoga\</IntDir>
+    <TargetName>libyoga</TargetName>
+    <TargetExt>.a</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Distribution MacOS|x64'">
+    <OutDir>..\..\bin\MacOS\Distribution\yoga\</OutDir>
+    <IntDir>..\..\bin\intermediate\MacOS\Distribution\yoga\</IntDir>
+    <TargetName>libyoga</TargetName>
+    <TargetExt>.a</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Windows|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4103;5232;5105;4297;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>B3_USE_CLEW;KHRONOS_STATIC;BT_THREADSAFE=1;BOOST_ALL_NO_LIB;VK_NO_PROTOTYPES;JSON_NOEXCEPTION;AL_LIBTYPE_STATIC;SPDLOG_COMPILED_LIB;SPDLOG_FMT_EXTERNAL;U_STATIC_IMPLEMENTATION;VULKAN_HPP_NO_STRUCT_CONSTRUCTORS;VULKAN_HPP_DISPATCH_LOADER_DYNAMIC=1;MLE_LEVEL_SSE=INTRINSICS_LEVEL_SSE;MLE_LEVEL_SSE2=INTRINSICS_LEVEL_SSE2;MLE_LEVEL_SSE3=INTRINSICS_LEVEL_SSE3;MLE_LEVEL_SSSE3=INTRINSICS_LEVEL_SSSE3;MLE_LEVEL_SSE41=INTRINSICS_LEVEL_SSE41;MLE_LEVEL_SSE42=INTRINSICS_LEVEL_SSE42;MLE_LEVEL_AVX=INTRINSICS_LEVEL_AVX;MLE_LEVEL_AVX2=INTRINSICS_LEVEL_AVX2;MLE_LEVEL_POPCNT=INTRINSICS_LEVEL_POPCNT;MLE_LEVEL_FMA=INTRINSICS_LEVEL_FMA;MLE_LEVEL_AVX512_F=INTRINSICS_LEVEL_AVX512_F;MLE_LEVEL_AVX512_CD=INTRINSICS_LEVEL_AVX512_CD;MLE_LEVEL_AVX512_ER=INTRINSICS_LEVEL_AVX512_ER;MLE_LEVEL_AVX512_PF=INTRINSICS_LEVEL_AVX512_PF;MLE_LEVEL_AVX512_VL=INTRINSICS_LEVEL_AVX512_VL;MLE_LEVEL_AVX512_DQ=INTRINSICS_LEVEL_AVX512_DQ;MLE_LEVEL_AVX512_BW=INTRINSICS_LEVEL_AVX512_BW;MLE_LEVEL_AVX512_IFMA=INTRINSICS_LEVEL_AVX512_IFMA;MLE_LEVEL_AVX512_VBMI=INTRINSICS_LEVEL_AVX512_VBMI;MLE_LEVEL_AVX512_4VNNIW=INTRINSICS_LEVEL_AVX512_4VNNIW;MLE_LEVEL_AVX512_4FMAPS=INTRINSICS_LEVEL_AVX512_4FMAPS;MLE_LEVEL_AVX512_VPOPCNTDQ=INTRINSICS_LEVEL_AVX512_VPOPCNTDQ;MLE_LEVEL_AVX512_VNNI=INTRINSICS_LEVEL_AVX512_VNNI;MLE_LEVEL_AVX512_VBMI2=INTRINSICS_LEVEL_AVX512_VBMI2;MLE_LEVEL_AVX512_BITALG=INTRINSICS_LEVEL_AVX512_BITALG;MLE_LEVEL_AVX512_VP2INTERSECT=INTRINSICS_LEVEL_AVX512_VP2INTERSECT;MLE_LEVEL_AVX512_GFNI=INTRINSICS_LEVEL_AVX512_GFNI;MLE_LEVEL_AVX512_VPCLMULQDQ=INTRINSICS_LEVEL_AVX512_VPCLMULQDQ;MLE_LEVEL_AVX512_VAES=INTRINSICS_LEVEL_AVX512_VAES;INTRINSICS_LEVEL_AVX512_F=0;INTRINSICS_LEVEL_AVX512_CD=0;INTRINSICS_LEVEL_AVX512_ER=0;INTRINSICS_LEVEL_AVX512_PF=0;INTRINSICS_LEVEL_AVX512_VL=0;INTRINSICS_LEVEL_AVX512_DQ=0;INTRINSICS_LEVEL_AVX512_BW=0;INTRINSICS_LEVEL_AVX512_IFMA=0;INTRINSICS_LEVEL_AVX512_VBMI=0;INTRINSICS_LEVEL_AVX512_4VNNIW=0;INTRINSICS_LEVEL_AVX512_4FMAPS=0;INTRINSICS_LEVEL_AVX512_VPOPCNTDQ=0;INTRINSICS_LEVEL_AVX512_VNNI=0;INTRINSICS_LEVEL_AVX512_VBMI2=0;INTRINSICS_LEVEL_AVX512_BITALG=0;INTRINSICS_LEVEL_AVX512_VP2INTERSECT=0;INTRINSICS_LEVEL_AVX512_GFNI=0;INTRINSICS_LEVEL_AVX512_VPCLMULQDQ=0;INTRINSICS_LEVEL_AVX512_VAES=0;NOMINMAX;MLE_PLATFORM_WINDOWS;WIN32;_SILENCE_CXX23_ALIGNED_STORAGE_DEPRECATION_WARNING;MLE_DEBUG_BUILD;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalOptions>/Zc:preprocessor /Zc:__cplusplus /Zc:externConstexpr /Zc:throwingNew /EHsc %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Linux|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>B3_USE_CLEW;KHRONOS_STATIC;BT_THREADSAFE=1;BOOST_ALL_NO_LIB;VK_NO_PROTOTYPES;JSON_NOEXCEPTION;AL_LIBTYPE_STATIC;SPDLOG_COMPILED_LIB;SPDLOG_FMT_EXTERNAL;U_STATIC_IMPLEMENTATION;VULKAN_HPP_NO_STRUCT_CONSTRUCTORS;VULKAN_HPP_DISPATCH_LOADER_DYNAMIC=1;MLE_LEVEL_SSE=INTRINSICS_LEVEL_SSE;MLE_LEVEL_SSE2=INTRINSICS_LEVEL_SSE2;MLE_LEVEL_SSE3=INTRINSICS_LEVEL_SSE3;MLE_LEVEL_SSSE3=INTRINSICS_LEVEL_SSSE3;MLE_LEVEL_SSE41=INTRINSICS_LEVEL_SSE41;MLE_LEVEL_SSE42=INTRINSICS_LEVEL_SSE42;MLE_LEVEL_AVX=INTRINSICS_LEVEL_AVX;MLE_LEVEL_AVX2=INTRINSICS_LEVEL_AVX2;MLE_LEVEL_POPCNT=INTRINSICS_LEVEL_POPCNT;MLE_LEVEL_FMA=INTRINSICS_LEVEL_FMA;MLE_LEVEL_AVX512_F=INTRINSICS_LEVEL_AVX512_F;MLE_LEVEL_AVX512_CD=INTRINSICS_LEVEL_AVX512_CD;MLE_LEVEL_AVX512_ER=INTRINSICS_LEVEL_AVX512_ER;MLE_LEVEL_AVX512_PF=INTRINSICS_LEVEL_AVX512_PF;MLE_LEVEL_AVX512_VL=INTRINSICS_LEVEL_AVX512_VL;MLE_LEVEL_AVX512_DQ=INTRINSICS_LEVEL_AVX512_DQ;MLE_LEVEL_AVX512_BW=INTRINSICS_LEVEL_AVX512_BW;MLE_LEVEL_AVX512_IFMA=INTRINSICS_LEVEL_AVX512_IFMA;MLE_LEVEL_AVX512_VBMI=INTRINSICS_LEVEL_AVX512_VBMI;MLE_LEVEL_AVX512_4VNNIW=INTRINSICS_LEVEL_AVX512_4VNNIW;MLE_LEVEL_AVX512_4FMAPS=INTRINSICS_LEVEL_AVX512_4FMAPS;MLE_LEVEL_AVX512_VPOPCNTDQ=INTRINSICS_LEVEL_AVX512_VPOPCNTDQ;MLE_LEVEL_AVX512_VNNI=INTRINSICS_LEVEL_AVX512_VNNI;MLE_LEVEL_AVX512_VBMI2=INTRINSICS_LEVEL_AVX512_VBMI2;MLE_LEVEL_AVX512_BITALG=INTRINSICS_LEVEL_AVX512_BITALG;MLE_LEVEL_AVX512_VP2INTERSECT=INTRINSICS_LEVEL_AVX512_VP2INTERSECT;MLE_LEVEL_AVX512_GFNI=INTRINSICS_LEVEL_AVX512_GFNI;MLE_LEVEL_AVX512_VPCLMULQDQ=INTRINSICS_LEVEL_AVX512_VPCLMULQDQ;MLE_LEVEL_AVX512_VAES=INTRINSICS_LEVEL_AVX512_VAES;INTRINSICS_LEVEL_AVX512_F=0;INTRINSICS_LEVEL_AVX512_CD=0;INTRINSICS_LEVEL_AVX512_ER=0;INTRINSICS_LEVEL_AVX512_PF=0;INTRINSICS_LEVEL_AVX512_VL=0;INTRINSICS_LEVEL_AVX512_DQ=0;INTRINSICS_LEVEL_AVX512_BW=0;INTRINSICS_LEVEL_AVX512_IFMA=0;INTRINSICS_LEVEL_AVX512_VBMI=0;INTRINSICS_LEVEL_AVX512_4VNNIW=0;INTRINSICS_LEVEL_AVX512_4FMAPS=0;INTRINSICS_LEVEL_AVX512_VPOPCNTDQ=0;INTRINSICS_LEVEL_AVX512_VNNI=0;INTRINSICS_LEVEL_AVX512_VBMI2=0;INTRINSICS_LEVEL_AVX512_BITALG=0;INTRINSICS_LEVEL_AVX512_VP2INTERSECT=0;INTRINSICS_LEVEL_AVX512_GFNI=0;INTRINSICS_LEVEL_AVX512_VPCLMULQDQ=0;INTRINSICS_LEVEL_AVX512_VAES=0;MLE_PLATFORM_LINUX;MLE_DEBUG_BUILD;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug MacOS|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>B3_USE_CLEW;KHRONOS_STATIC;BT_THREADSAFE=1;BOOST_ALL_NO_LIB;VK_NO_PROTOTYPES;JSON_NOEXCEPTION;AL_LIBTYPE_STATIC;SPDLOG_COMPILED_LIB;SPDLOG_FMT_EXTERNAL;U_STATIC_IMPLEMENTATION;VULKAN_HPP_NO_STRUCT_CONSTRUCTORS;VULKAN_HPP_DISPATCH_LOADER_DYNAMIC=1;MLE_LEVEL_SSE=INTRINSICS_LEVEL_SSE;MLE_LEVEL_SSE2=INTRINSICS_LEVEL_SSE2;MLE_LEVEL_SSE3=INTRINSICS_LEVEL_SSE3;MLE_LEVEL_SSSE3=INTRINSICS_LEVEL_SSSE3;MLE_LEVEL_SSE41=INTRINSICS_LEVEL_SSE41;MLE_LEVEL_SSE42=INTRINSICS_LEVEL_SSE42;MLE_LEVEL_AVX=INTRINSICS_LEVEL_AVX;MLE_LEVEL_AVX2=INTRINSICS_LEVEL_AVX2;MLE_LEVEL_POPCNT=INTRINSICS_LEVEL_POPCNT;MLE_LEVEL_FMA=INTRINSICS_LEVEL_FMA;MLE_LEVEL_AVX512_F=INTRINSICS_LEVEL_AVX512_F;MLE_LEVEL_AVX512_CD=INTRINSICS_LEVEL_AVX512_CD;MLE_LEVEL_AVX512_ER=INTRINSICS_LEVEL_AVX512_ER;MLE_LEVEL_AVX512_PF=INTRINSICS_LEVEL_AVX512_PF;MLE_LEVEL_AVX512_VL=INTRINSICS_LEVEL_AVX512_VL;MLE_LEVEL_AVX512_DQ=INTRINSICS_LEVEL_AVX512_DQ;MLE_LEVEL_AVX512_BW=INTRINSICS_LEVEL_AVX512_BW;MLE_LEVEL_AVX512_IFMA=INTRINSICS_LEVEL_AVX512_IFMA;MLE_LEVEL_AVX512_VBMI=INTRINSICS_LEVEL_AVX512_VBMI;MLE_LEVEL_AVX512_4VNNIW=INTRINSICS_LEVEL_AVX512_4VNNIW;MLE_LEVEL_AVX512_4FMAPS=INTRINSICS_LEVEL_AVX512_4FMAPS;MLE_LEVEL_AVX512_VPOPCNTDQ=INTRINSICS_LEVEL_AVX512_VPOPCNTDQ;MLE_LEVEL_AVX512_VNNI=INTRINSICS_LEVEL_AVX512_VNNI;MLE_LEVEL_AVX512_VBMI2=INTRINSICS_LEVEL_AVX512_VBMI2;MLE_LEVEL_AVX512_BITALG=INTRINSICS_LEVEL_AVX512_BITALG;MLE_LEVEL_AVX512_VP2INTERSECT=INTRINSICS_LEVEL_AVX512_VP2INTERSECT;MLE_LEVEL_AVX512_GFNI=INTRINSICS_LEVEL_AVX512_GFNI;MLE_LEVEL_AVX512_VPCLMULQDQ=INTRINSICS_LEVEL_AVX512_VPCLMULQDQ;MLE_LEVEL_AVX512_VAES=INTRINSICS_LEVEL_AVX512_VAES;INTRINSICS_LEVEL_AVX512_F=0;INTRINSICS_LEVEL_AVX512_CD=0;INTRINSICS_LEVEL_AVX512_ER=0;INTRINSICS_LEVEL_AVX512_PF=0;INTRINSICS_LEVEL_AVX512_VL=0;INTRINSICS_LEVEL_AVX512_DQ=0;INTRINSICS_LEVEL_AVX512_BW=0;INTRINSICS_LEVEL_AVX512_IFMA=0;INTRINSICS_LEVEL_AVX512_VBMI=0;INTRINSICS_LEVEL_AVX512_4VNNIW=0;INTRINSICS_LEVEL_AVX512_4FMAPS=0;INTRINSICS_LEVEL_AVX512_VPOPCNTDQ=0;INTRINSICS_LEVEL_AVX512_VNNI=0;INTRINSICS_LEVEL_AVX512_VBMI2=0;INTRINSICS_LEVEL_AVX512_BITALG=0;INTRINSICS_LEVEL_AVX512_VP2INTERSECT=0;INTRINSICS_LEVEL_AVX512_GFNI=0;INTRINSICS_LEVEL_AVX512_VPCLMULQDQ=0;INTRINSICS_LEVEL_AVX512_VAES=0;MLE_PLATFORM_MACOS;MLE_DEBUG_BUILD;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Windows|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4103;5232;5105;4297;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>B3_USE_CLEW;KHRONOS_STATIC;BT_THREADSAFE=1;BOOST_ALL_NO_LIB;VK_NO_PROTOTYPES;JSON_NOEXCEPTION;AL_LIBTYPE_STATIC;SPDLOG_COMPILED_LIB;SPDLOG_FMT_EXTERNAL;U_STATIC_IMPLEMENTATION;VULKAN_HPP_NO_STRUCT_CONSTRUCTORS;VULKAN_HPP_DISPATCH_LOADER_DYNAMIC=1;MLE_LEVEL_SSE=INTRINSICS_LEVEL_SSE;MLE_LEVEL_SSE2=INTRINSICS_LEVEL_SSE2;MLE_LEVEL_SSE3=INTRINSICS_LEVEL_SSE3;MLE_LEVEL_SSSE3=INTRINSICS_LEVEL_SSSE3;MLE_LEVEL_SSE41=INTRINSICS_LEVEL_SSE41;MLE_LEVEL_SSE42=INTRINSICS_LEVEL_SSE42;MLE_LEVEL_AVX=INTRINSICS_LEVEL_AVX;MLE_LEVEL_AVX2=INTRINSICS_LEVEL_AVX2;MLE_LEVEL_POPCNT=INTRINSICS_LEVEL_POPCNT;MLE_LEVEL_FMA=INTRINSICS_LEVEL_FMA;MLE_LEVEL_AVX512_F=INTRINSICS_LEVEL_AVX512_F;MLE_LEVEL_AVX512_CD=INTRINSICS_LEVEL_AVX512_CD;MLE_LEVEL_AVX512_ER=INTRINSICS_LEVEL_AVX512_ER;MLE_LEVEL_AVX512_PF=INTRINSICS_LEVEL_AVX512_PF;MLE_LEVEL_AVX512_VL=INTRINSICS_LEVEL_AVX512_VL;MLE_LEVEL_AVX512_DQ=INTRINSICS_LEVEL_AVX512_DQ;MLE_LEVEL_AVX512_BW=INTRINSICS_LEVEL_AVX512_BW;MLE_LEVEL_AVX512_IFMA=INTRINSICS_LEVEL_AVX512_IFMA;MLE_LEVEL_AVX512_VBMI=INTRINSICS_LEVEL_AVX512_VBMI;MLE_LEVEL_AVX512_4VNNIW=INTRINSICS_LEVEL_AVX512_4VNNIW;MLE_LEVEL_AVX512_4FMAPS=INTRINSICS_LEVEL_AVX512_4FMAPS;MLE_LEVEL_AVX512_VPOPCNTDQ=INTRINSICS_LEVEL_AVX512_VPOPCNTDQ;MLE_LEVEL_AVX512_VNNI=INTRINSICS_LEVEL_AVX512_VNNI;MLE_LEVEL_AVX512_VBMI2=INTRINSICS_LEVEL_AVX512_VBMI2;MLE_LEVEL_AVX512_BITALG=INTRINSICS_LEVEL_AVX512_BITALG;MLE_LEVEL_AVX512_VP2INTERSECT=INTRINSICS_LEVEL_AVX512_VP2INTERSECT;MLE_LEVEL_AVX512_GFNI=INTRINSICS_LEVEL_AVX512_GFNI;MLE_LEVEL_AVX512_VPCLMULQDQ=INTRINSICS_LEVEL_AVX512_VPCLMULQDQ;MLE_LEVEL_AVX512_VAES=INTRINSICS_LEVEL_AVX512_VAES;INTRINSICS_LEVEL_AVX512_F=0;INTRINSICS_LEVEL_AVX512_CD=0;INTRINSICS_LEVEL_AVX512_ER=0;INTRINSICS_LEVEL_AVX512_PF=0;INTRINSICS_LEVEL_AVX512_VL=0;INTRINSICS_LEVEL_AVX512_DQ=0;INTRINSICS_LEVEL_AVX512_BW=0;INTRINSICS_LEVEL_AVX512_IFMA=0;INTRINSICS_LEVEL_AVX512_VBMI=0;INTRINSICS_LEVEL_AVX512_4VNNIW=0;INTRINSICS_LEVEL_AVX512_4FMAPS=0;INTRINSICS_LEVEL_AVX512_VPOPCNTDQ=0;INTRINSICS_LEVEL_AVX512_VNNI=0;INTRINSICS_LEVEL_AVX512_VBMI2=0;INTRINSICS_LEVEL_AVX512_BITALG=0;INTRINSICS_LEVEL_AVX512_VP2INTERSECT=0;INTRINSICS_LEVEL_AVX512_GFNI=0;INTRINSICS_LEVEL_AVX512_VPCLMULQDQ=0;INTRINSICS_LEVEL_AVX512_VAES=0;NOMINMAX;MLE_PLATFORM_WINDOWS;WIN32;_SILENCE_CXX23_ALIGNED_STORAGE_DEPRECATION_WARNING;MLE_RELEASE_BUILD;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalOptions>/Ot /Zc:preprocessor /Zc:__cplusplus /Zc:externConstexpr /Zc:throwingNew /EHsc %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Linux|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>B3_USE_CLEW;KHRONOS_STATIC;BT_THREADSAFE=1;BOOST_ALL_NO_LIB;VK_NO_PROTOTYPES;JSON_NOEXCEPTION;AL_LIBTYPE_STATIC;SPDLOG_COMPILED_LIB;SPDLOG_FMT_EXTERNAL;U_STATIC_IMPLEMENTATION;VULKAN_HPP_NO_STRUCT_CONSTRUCTORS;VULKAN_HPP_DISPATCH_LOADER_DYNAMIC=1;MLE_LEVEL_SSE=INTRINSICS_LEVEL_SSE;MLE_LEVEL_SSE2=INTRINSICS_LEVEL_SSE2;MLE_LEVEL_SSE3=INTRINSICS_LEVEL_SSE3;MLE_LEVEL_SSSE3=INTRINSICS_LEVEL_SSSE3;MLE_LEVEL_SSE41=INTRINSICS_LEVEL_SSE41;MLE_LEVEL_SSE42=INTRINSICS_LEVEL_SSE42;MLE_LEVEL_AVX=INTRINSICS_LEVEL_AVX;MLE_LEVEL_AVX2=INTRINSICS_LEVEL_AVX2;MLE_LEVEL_POPCNT=INTRINSICS_LEVEL_POPCNT;MLE_LEVEL_FMA=INTRINSICS_LEVEL_FMA;MLE_LEVEL_AVX512_F=INTRINSICS_LEVEL_AVX512_F;MLE_LEVEL_AVX512_CD=INTRINSICS_LEVEL_AVX512_CD;MLE_LEVEL_AVX512_ER=INTRINSICS_LEVEL_AVX512_ER;MLE_LEVEL_AVX512_PF=INTRINSICS_LEVEL_AVX512_PF;MLE_LEVEL_AVX512_VL=INTRINSICS_LEVEL_AVX512_VL;MLE_LEVEL_AVX512_DQ=INTRINSICS_LEVEL_AVX512_DQ;MLE_LEVEL_AVX512_BW=INTRINSICS_LEVEL_AVX512_BW;MLE_LEVEL_AVX512_IFMA=INTRINSICS_LEVEL_AVX512_IFMA;MLE_LEVEL_AVX512_VBMI=INTRINSICS_LEVEL_AVX512_VBMI;MLE_LEVEL_AVX512_4VNNIW=INTRINSICS_LEVEL_AVX512_4VNNIW;MLE_LEVEL_AVX512_4FMAPS=INTRINSICS_LEVEL_AVX512_4FMAPS;MLE_LEVEL_AVX512_VPOPCNTDQ=INTRINSICS_LEVEL_AVX512_VPOPCNTDQ;MLE_LEVEL_AVX512_VNNI=INTRINSICS_LEVEL_AVX512_VNNI;MLE_LEVEL_AVX512_VBMI2=INTRINSICS_LEVEL_AVX512_VBMI2;MLE_LEVEL_AVX512_BITALG=INTRINSICS_LEVEL_AVX512_BITALG;MLE_LEVEL_AVX512_VP2INTERSECT=INTRINSICS_LEVEL_AVX512_VP2INTERSECT;MLE_LEVEL_AVX512_GFNI=INTRINSICS_LEVEL_AVX512_GFNI;MLE_LEVEL_AVX512_VPCLMULQDQ=INTRINSICS_LEVEL_AVX512_VPCLMULQDQ;MLE_LEVEL_AVX512_VAES=INTRINSICS_LEVEL_AVX512_VAES;INTRINSICS_LEVEL_AVX512_F=0;INTRINSICS_LEVEL_AVX512_CD=0;INTRINSICS_LEVEL_AVX512_ER=0;INTRINSICS_LEVEL_AVX512_PF=0;INTRINSICS_LEVEL_AVX512_VL=0;INTRINSICS_LEVEL_AVX512_DQ=0;INTRINSICS_LEVEL_AVX512_BW=0;INTRINSICS_LEVEL_AVX512_IFMA=0;INTRINSICS_LEVEL_AVX512_VBMI=0;INTRINSICS_LEVEL_AVX512_4VNNIW=0;INTRINSICS_LEVEL_AVX512_4FMAPS=0;INTRINSICS_LEVEL_AVX512_VPOPCNTDQ=0;INTRINSICS_LEVEL_AVX512_VNNI=0;INTRINSICS_LEVEL_AVX512_VBMI2=0;INTRINSICS_LEVEL_AVX512_BITALG=0;INTRINSICS_LEVEL_AVX512_VP2INTERSECT=0;INTRINSICS_LEVEL_AVX512_GFNI=0;INTRINSICS_LEVEL_AVX512_VPCLMULQDQ=0;INTRINSICS_LEVEL_AVX512_VAES=0;MLE_PLATFORM_LINUX;MLE_RELEASE_BUILD;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release MacOS|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>B3_USE_CLEW;KHRONOS_STATIC;BT_THREADSAFE=1;BOOST_ALL_NO_LIB;VK_NO_PROTOTYPES;JSON_NOEXCEPTION;AL_LIBTYPE_STATIC;SPDLOG_COMPILED_LIB;SPDLOG_FMT_EXTERNAL;U_STATIC_IMPLEMENTATION;VULKAN_HPP_NO_STRUCT_CONSTRUCTORS;VULKAN_HPP_DISPATCH_LOADER_DYNAMIC=1;MLE_LEVEL_SSE=INTRINSICS_LEVEL_SSE;MLE_LEVEL_SSE2=INTRINSICS_LEVEL_SSE2;MLE_LEVEL_SSE3=INTRINSICS_LEVEL_SSE3;MLE_LEVEL_SSSE3=INTRINSICS_LEVEL_SSSE3;MLE_LEVEL_SSE41=INTRINSICS_LEVEL_SSE41;MLE_LEVEL_SSE42=INTRINSICS_LEVEL_SSE42;MLE_LEVEL_AVX=INTRINSICS_LEVEL_AVX;MLE_LEVEL_AVX2=INTRINSICS_LEVEL_AVX2;MLE_LEVEL_POPCNT=INTRINSICS_LEVEL_POPCNT;MLE_LEVEL_FMA=INTRINSICS_LEVEL_FMA;MLE_LEVEL_AVX512_F=INTRINSICS_LEVEL_AVX512_F;MLE_LEVEL_AVX512_CD=INTRINSICS_LEVEL_AVX512_CD;MLE_LEVEL_AVX512_ER=INTRINSICS_LEVEL_AVX512_ER;MLE_LEVEL_AVX512_PF=INTRINSICS_LEVEL_AVX512_PF;MLE_LEVEL_AVX512_VL=INTRINSICS_LEVEL_AVX512_VL;MLE_LEVEL_AVX512_DQ=INTRINSICS_LEVEL_AVX512_DQ;MLE_LEVEL_AVX512_BW=INTRINSICS_LEVEL_AVX512_BW;MLE_LEVEL_AVX512_IFMA=INTRINSICS_LEVEL_AVX512_IFMA;MLE_LEVEL_AVX512_VBMI=INTRINSICS_LEVEL_AVX512_VBMI;MLE_LEVEL_AVX512_4VNNIW=INTRINSICS_LEVEL_AVX512_4VNNIW;MLE_LEVEL_AVX512_4FMAPS=INTRINSICS_LEVEL_AVX512_4FMAPS;MLE_LEVEL_AVX512_VPOPCNTDQ=INTRINSICS_LEVEL_AVX512_VPOPCNTDQ;MLE_LEVEL_AVX512_VNNI=INTRINSICS_LEVEL_AVX512_VNNI;MLE_LEVEL_AVX512_VBMI2=INTRINSICS_LEVEL_AVX512_VBMI2;MLE_LEVEL_AVX512_BITALG=INTRINSICS_LEVEL_AVX512_BITALG;MLE_LEVEL_AVX512_VP2INTERSECT=INTRINSICS_LEVEL_AVX512_VP2INTERSECT;MLE_LEVEL_AVX512_GFNI=INTRINSICS_LEVEL_AVX512_GFNI;MLE_LEVEL_AVX512_VPCLMULQDQ=INTRINSICS_LEVEL_AVX512_VPCLMULQDQ;MLE_LEVEL_AVX512_VAES=INTRINSICS_LEVEL_AVX512_VAES;INTRINSICS_LEVEL_AVX512_F=0;INTRINSICS_LEVEL_AVX512_CD=0;INTRINSICS_LEVEL_AVX512_ER=0;INTRINSICS_LEVEL_AVX512_PF=0;INTRINSICS_LEVEL_AVX512_VL=0;INTRINSICS_LEVEL_AVX512_DQ=0;INTRINSICS_LEVEL_AVX512_BW=0;INTRINSICS_LEVEL_AVX512_IFMA=0;INTRINSICS_LEVEL_AVX512_VBMI=0;INTRINSICS_LEVEL_AVX512_4VNNIW=0;INTRINSICS_LEVEL_AVX512_4FMAPS=0;INTRINSICS_LEVEL_AVX512_VPOPCNTDQ=0;INTRINSICS_LEVEL_AVX512_VNNI=0;INTRINSICS_LEVEL_AVX512_VBMI2=0;INTRINSICS_LEVEL_AVX512_BITALG=0;INTRINSICS_LEVEL_AVX512_VP2INTERSECT=0;INTRINSICS_LEVEL_AVX512_GFNI=0;INTRINSICS_LEVEL_AVX512_VPCLMULQDQ=0;INTRINSICS_LEVEL_AVX512_VAES=0;MLE_PLATFORM_MACOS;MLE_RELEASE_BUILD;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Distribution Windows|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4103;5232;5105;4297;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>B3_USE_CLEW;KHRONOS_STATIC;BT_THREADSAFE=1;BOOST_ALL_NO_LIB;VK_NO_PROTOTYPES;JSON_NOEXCEPTION;AL_LIBTYPE_STATIC;SPDLOG_COMPILED_LIB;SPDLOG_FMT_EXTERNAL;U_STATIC_IMPLEMENTATION;VULKAN_HPP_NO_STRUCT_CONSTRUCTORS;VULKAN_HPP_DISPATCH_LOADER_DYNAMIC=1;MLE_LEVEL_SSE=INTRINSICS_LEVEL_SSE;MLE_LEVEL_SSE2=INTRINSICS_LEVEL_SSE2;MLE_LEVEL_SSE3=INTRINSICS_LEVEL_SSE3;MLE_LEVEL_SSSE3=INTRINSICS_LEVEL_SSSE3;MLE_LEVEL_SSE41=INTRINSICS_LEVEL_SSE41;MLE_LEVEL_SSE42=INTRINSICS_LEVEL_SSE42;MLE_LEVEL_AVX=INTRINSICS_LEVEL_AVX;MLE_LEVEL_AVX2=INTRINSICS_LEVEL_AVX2;MLE_LEVEL_POPCNT=INTRINSICS_LEVEL_POPCNT;MLE_LEVEL_FMA=INTRINSICS_LEVEL_FMA;MLE_LEVEL_AVX512_F=INTRINSICS_LEVEL_AVX512_F;MLE_LEVEL_AVX512_CD=INTRINSICS_LEVEL_AVX512_CD;MLE_LEVEL_AVX512_ER=INTRINSICS_LEVEL_AVX512_ER;MLE_LEVEL_AVX512_PF=INTRINSICS_LEVEL_AVX512_PF;MLE_LEVEL_AVX512_VL=INTRINSICS_LEVEL_AVX512_VL;MLE_LEVEL_AVX512_DQ=INTRINSICS_LEVEL_AVX512_DQ;MLE_LEVEL_AVX512_BW=INTRINSICS_LEVEL_AVX512_BW;MLE_LEVEL_AVX512_IFMA=INTRINSICS_LEVEL_AVX512_IFMA;MLE_LEVEL_AVX512_VBMI=INTRINSICS_LEVEL_AVX512_VBMI;MLE_LEVEL_AVX512_4VNNIW=INTRINSICS_LEVEL_AVX512_4VNNIW;MLE_LEVEL_AVX512_4FMAPS=INTRINSICS_LEVEL_AVX512_4FMAPS;MLE_LEVEL_AVX512_VPOPCNTDQ=INTRINSICS_LEVEL_AVX512_VPOPCNTDQ;MLE_LEVEL_AVX512_VNNI=INTRINSICS_LEVEL_AVX512_VNNI;MLE_LEVEL_AVX512_VBMI2=INTRINSICS_LEVEL_AVX512_VBMI2;MLE_LEVEL_AVX512_BITALG=INTRINSICS_LEVEL_AVX512_BITALG;MLE_LEVEL_AVX512_VP2INTERSECT=INTRINSICS_LEVEL_AVX512_VP2INTERSECT;MLE_LEVEL_AVX512_GFNI=INTRINSICS_LEVEL_AVX512_GFNI;MLE_LEVEL_AVX512_VPCLMULQDQ=INTRINSICS_LEVEL_AVX512_VPCLMULQDQ;MLE_LEVEL_AVX512_VAES=INTRINSICS_LEVEL_AVX512_VAES;INTRINSICS_LEVEL_AVX512_F=0;INTRINSICS_LEVEL_AVX512_CD=0;INTRINSICS_LEVEL_AVX512_ER=0;INTRINSICS_LEVEL_AVX512_PF=0;INTRINSICS_LEVEL_AVX512_VL=0;INTRINSICS_LEVEL_AVX512_DQ=0;INTRINSICS_LEVEL_AVX512_BW=0;INTRINSICS_LEVEL_AVX512_IFMA=0;INTRINSICS_LEVEL_AVX512_VBMI=0;INTRINSICS_LEVEL_AVX512_4VNNIW=0;INTRINSICS_LEVEL_AVX512_4FMAPS=0;INTRINSICS_LEVEL_AVX512_VPOPCNTDQ=0;INTRINSICS_LEVEL_AVX512_VNNI=0;INTRINSICS_LEVEL_AVX512_VBMI2=0;INTRINSICS_LEVEL_AVX512_BITALG=0;INTRINSICS_LEVEL_AVX512_VP2INTERSECT=0;INTRINSICS_LEVEL_AVX512_GFNI=0;INTRINSICS_LEVEL_AVX512_VPCLMULQDQ=0;INTRINSICS_LEVEL_AVX512_VAES=0;NOMINMAX;MLE_PLATFORM_WINDOWS;WIN32;_SILENCE_CXX23_ALIGNED_STORAGE_DEPRECATION_WARNING;MLE_DISTRIBUTION_BUILD;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalOptions>/Ot /GS- /Zc:preprocessor /Zc:__cplusplus /Zc:externConstexpr /Zc:throwingNew /EHsc %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Distribution Linux|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>B3_USE_CLEW;KHRONOS_STATIC;BT_THREADSAFE=1;BOOST_ALL_NO_LIB;VK_NO_PROTOTYPES;JSON_NOEXCEPTION;AL_LIBTYPE_STATIC;SPDLOG_COMPILED_LIB;SPDLOG_FMT_EXTERNAL;U_STATIC_IMPLEMENTATION;VULKAN_HPP_NO_STRUCT_CONSTRUCTORS;VULKAN_HPP_DISPATCH_LOADER_DYNAMIC=1;MLE_LEVEL_SSE=INTRINSICS_LEVEL_SSE;MLE_LEVEL_SSE2=INTRINSICS_LEVEL_SSE2;MLE_LEVEL_SSE3=INTRINSICS_LEVEL_SSE3;MLE_LEVEL_SSSE3=INTRINSICS_LEVEL_SSSE3;MLE_LEVEL_SSE41=INTRINSICS_LEVEL_SSE41;MLE_LEVEL_SSE42=INTRINSICS_LEVEL_SSE42;MLE_LEVEL_AVX=INTRINSICS_LEVEL_AVX;MLE_LEVEL_AVX2=INTRINSICS_LEVEL_AVX2;MLE_LEVEL_POPCNT=INTRINSICS_LEVEL_POPCNT;MLE_LEVEL_FMA=INTRINSICS_LEVEL_FMA;MLE_LEVEL_AVX512_F=INTRINSICS_LEVEL_AVX512_F;MLE_LEVEL_AVX512_CD=INTRINSICS_LEVEL_AVX512_CD;MLE_LEVEL_AVX512_ER=INTRINSICS_LEVEL_AVX512_ER;MLE_LEVEL_AVX512_PF=INTRINSICS_LEVEL_AVX512_PF;MLE_LEVEL_AVX512_VL=INTRINSICS_LEVEL_AVX512_VL;MLE_LEVEL_AVX512_DQ=INTRINSICS_LEVEL_AVX512_DQ;MLE_LEVEL_AVX512_BW=INTRINSICS_LEVEL_AVX512_BW;MLE_LEVEL_AVX512_IFMA=INTRINSICS_LEVEL_AVX512_IFMA;MLE_LEVEL_AVX512_VBMI=INTRINSICS_LEVEL_AVX512_VBMI;MLE_LEVEL_AVX512_4VNNIW=INTRINSICS_LEVEL_AVX512_4VNNIW;MLE_LEVEL_AVX512_4FMAPS=INTRINSICS_LEVEL_AVX512_4FMAPS;MLE_LEVEL_AVX512_VPOPCNTDQ=INTRINSICS_LEVEL_AVX512_VPOPCNTDQ;MLE_LEVEL_AVX512_VNNI=INTRINSICS_LEVEL_AVX512_VNNI;MLE_LEVEL_AVX512_VBMI2=INTRINSICS_LEVEL_AVX512_VBMI2;MLE_LEVEL_AVX512_BITALG=INTRINSICS_LEVEL_AVX512_BITALG;MLE_LEVEL_AVX512_VP2INTERSECT=INTRINSICS_LEVEL_AVX512_VP2INTERSECT;MLE_LEVEL_AVX512_GFNI=INTRINSICS_LEVEL_AVX512_GFNI;MLE_LEVEL_AVX512_VPCLMULQDQ=INTRINSICS_LEVEL_AVX512_VPCLMULQDQ;MLE_LEVEL_AVX512_VAES=INTRINSICS_LEVEL_AVX512_VAES;INTRINSICS_LEVEL_AVX512_F=0;INTRINSICS_LEVEL_AVX512_CD=0;INTRINSICS_LEVEL_AVX512_ER=0;INTRINSICS_LEVEL_AVX512_PF=0;INTRINSICS_LEVEL_AVX512_VL=0;INTRINSICS_LEVEL_AVX512_DQ=0;INTRINSICS_LEVEL_AVX512_BW=0;INTRINSICS_LEVEL_AVX512_IFMA=0;INTRINSICS_LEVEL_AVX512_VBMI=0;INTRINSICS_LEVEL_AVX512_4VNNIW=0;INTRINSICS_LEVEL_AVX512_4FMAPS=0;INTRINSICS_LEVEL_AVX512_VPOPCNTDQ=0;INTRINSICS_LEVEL_AVX512_VNNI=0;INTRINSICS_LEVEL_AVX512_VBMI2=0;INTRINSICS_LEVEL_AVX512_BITALG=0;INTRINSICS_LEVEL_AVX512_VP2INTERSECT=0;INTRINSICS_LEVEL_AVX512_GFNI=0;INTRINSICS_LEVEL_AVX512_VPCLMULQDQ=0;INTRINSICS_LEVEL_AVX512_VAES=0;MLE_PLATFORM_LINUX;MLE_DISTRIBUTION_BUILD;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Distribution MacOS|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>B3_USE_CLEW;KHRONOS_STATIC;BT_THREADSAFE=1;BOOST_ALL_NO_LIB;VK_NO_PROTOTYPES;JSON_NOEXCEPTION;AL_LIBTYPE_STATIC;SPDLOG_COMPILED_LIB;SPDLOG_FMT_EXTERNAL;U_STATIC_IMPLEMENTATION;VULKAN_HPP_NO_STRUCT_CONSTRUCTORS;VULKAN_HPP_DISPATCH_LOADER_DYNAMIC=1;MLE_LEVEL_SSE=INTRINSICS_LEVEL_SSE;MLE_LEVEL_SSE2=INTRINSICS_LEVEL_SSE2;MLE_LEVEL_SSE3=INTRINSICS_LEVEL_SSE3;MLE_LEVEL_SSSE3=INTRINSICS_LEVEL_SSSE3;MLE_LEVEL_SSE41=INTRINSICS_LEVEL_SSE41;MLE_LEVEL_SSE42=INTRINSICS_LEVEL_SSE42;MLE_LEVEL_AVX=INTRINSICS_LEVEL_AVX;MLE_LEVEL_AVX2=INTRINSICS_LEVEL_AVX2;MLE_LEVEL_POPCNT=INTRINSICS_LEVEL_POPCNT;MLE_LEVEL_FMA=INTRINSICS_LEVEL_FMA;MLE_LEVEL_AVX512_F=INTRINSICS_LEVEL_AVX512_F;MLE_LEVEL_AVX512_CD=INTRINSICS_LEVEL_AVX512_CD;MLE_LEVEL_AVX512_ER=INTRINSICS_LEVEL_AVX512_ER;MLE_LEVEL_AVX512_PF=INTRINSICS_LEVEL_AVX512_PF;MLE_LEVEL_AVX512_VL=INTRINSICS_LEVEL_AVX512_VL;MLE_LEVEL_AVX512_DQ=INTRINSICS_LEVEL_AVX512_DQ;MLE_LEVEL_AVX512_BW=INTRINSICS_LEVEL_AVX512_BW;MLE_LEVEL_AVX512_IFMA=INTRINSICS_LEVEL_AVX512_IFMA;MLE_LEVEL_AVX512_VBMI=INTRINSICS_LEVEL_AVX512_VBMI;MLE_LEVEL_AVX512_4VNNIW=INTRINSICS_LEVEL_AVX512_4VNNIW;MLE_LEVEL_AVX512_4FMAPS=INTRINSICS_LEVEL_AVX512_4FMAPS;MLE_LEVEL_AVX512_VPOPCNTDQ=INTRINSICS_LEVEL_AVX512_VPOPCNTDQ;MLE_LEVEL_AVX512_VNNI=INTRINSICS_LEVEL_AVX512_VNNI;MLE_LEVEL_AVX512_VBMI2=INTRINSICS_LEVEL_AVX512_VBMI2;MLE_LEVEL_AVX512_BITALG=INTRINSICS_LEVEL_AVX512_BITALG;MLE_LEVEL_AVX512_VP2INTERSECT=INTRINSICS_LEVEL_AVX512_VP2INTERSECT;MLE_LEVEL_AVX512_GFNI=INTRINSICS_LEVEL_AVX512_GFNI;MLE_LEVEL_AVX512_VPCLMULQDQ=INTRINSICS_LEVEL_AVX512_VPCLMULQDQ;MLE_LEVEL_AVX512_VAES=INTRINSICS_LEVEL_AVX512_VAES;INTRINSICS_LEVEL_AVX512_F=0;INTRINSICS_LEVEL_AVX512_CD=0;INTRINSICS_LEVEL_AVX512_ER=0;INTRINSICS_LEVEL_AVX512_PF=0;INTRINSICS_LEVEL_AVX512_VL=0;INTRINSICS_LEVEL_AVX512_DQ=0;INTRINSICS_LEVEL_AVX512_BW=0;INTRINSICS_LEVEL_AVX512_IFMA=0;INTRINSICS_LEVEL_AVX512_VBMI=0;INTRINSICS_LEVEL_AVX512_4VNNIW=0;INTRINSICS_LEVEL_AVX512_4FMAPS=0;INTRINSICS_LEVEL_AVX512_VPOPCNTDQ=0;INTRINSICS_LEVEL_AVX512_VNNI=0;INTRINSICS_LEVEL_AVX512_VBMI2=0;INTRINSICS_LEVEL_AVX512_BITALG=0;INTRINSICS_LEVEL_AVX512_VP2INTERSECT=0;INTRINSICS_LEVEL_AVX512_GFNI=0;INTRINSICS_LEVEL_AVX512_VPCLMULQDQ=0;INTRINSICS_LEVEL_AVX512_VAES=0;MLE_PLATFORM_MACOS;MLE_DISTRIBUTION_BUILD;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="yoga\BitUtils.h" />
+    <ClInclude Include="yoga\CompactValue.h" />
+    <ClInclude Include="yoga\Utils.h" />
+    <ClInclude Include="yoga\YGConfig.h" />
+    <ClInclude Include="yoga\YGEnums.h" />
+    <ClInclude Include="yoga\YGFloatOptional.h" />
+    <ClInclude Include="yoga\YGLayout.h" />
+    <ClInclude Include="yoga\YGMacros.h" />
+    <ClInclude Include="yoga\YGNode.h" />
+    <ClInclude Include="yoga\YGNodePrint.h" />
+    <ClInclude Include="yoga\YGStyle.h" />
+    <ClInclude Include="yoga\YGValue.h" />
+    <ClInclude Include="yoga\Yoga-internal.h" />
+    <ClInclude Include="yoga\Yoga.h" />
+    <ClInclude Include="yoga\event\event.h" />
+    <ClInclude Include="yoga\log.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="yoga\Utils.cpp" />
+    <ClCompile Include="yoga\YGConfig.cpp" />
+    <ClCompile Include="yoga\YGEnums.cpp" />
+    <ClCompile Include="yoga\YGLayout.cpp" />
+    <ClCompile Include="yoga\YGNode.cpp" />
+    <ClCompile Include="yoga\YGNodePrint.cpp" />
+    <ClCompile Include="yoga\YGStyle.cpp" />
+    <ClCompile Include="yoga\YGValue.cpp" />
+    <ClCompile Include="yoga\Yoga.cpp" />
+    <ClCompile Include="yoga\event\event.cpp" />
+    <ClCompile Include="yoga\log.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
