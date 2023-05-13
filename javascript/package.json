@@ -7,23 +7,25 @@
     "type": "git",
     "url": "git@github.com:facebook/yoga.git"
   },
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "browser": "./dist/entrypoint/wasm-async.js",
-      "node": "./dist/entrypoint/wasm-async.js",
-      "default": "./dist/entrypoint/asmjs-async.js"
+      "browser": "./src/entrypoint/wasm-async.ts",
+      "node": "./src/entrypoint/wasm-async.ts",
+      "default": "./src/entrypoint/asmjs-async.ts"
     },
     "./sync": {
-      "browser": "./dist/entrypoint/asmjs-sync.js",
-      "node": "./dist/entrypoint/wasm-sync.js",
-      "default": "./dist/entrypoint/asmjs-sync.js"
-    }
+      "browser": "./src/entrypoint/asmjs-sync.ts",
+      "node": "./src/entrypoint/wasm-sync.ts",
+      "default": "./src/entrypoint/asmjs-sync.ts"
+    },
+    "./asmjs-async": "./src/entrypoint/asmjs-async.ts",
+    "./asmjs-sync": "./src/entrypoint/asmjs-sync.ts",
+    "./wasm-async": "./src/entrypoint/wasm-async.ts",
+    "./wasm-sync": "./src/entrypoint/wasm-sync.ts"
   },
   "files": [
-    "dist/**",
-    "src_js/**"
+    "binaries/**",
+    "src/**"
   ],
   "scripts": {
     "benchmark": "just benchmark",
@@ -31,6 +33,7 @@
     "clean": "just clean",
     "lint": "just lint",
     "lint:fix": "just lint --fix",
+    "prepack": "just prepack",
     "test": "just test",
     "test:asmjs-async": "just test:asmjs-async",
     "test:asmjs-sync": "just test:asmjs-sync",
@@ -41,7 +44,15 @@
     "@babel/cli": "^7.20.7",
     "@babel/core": "^7.20.7",
     "@babel/eslint-parser": "^7.19.1",
+    "@babel/node": "^7.20.7",
     "@babel/preset-env": "^7.20.2",
+    "@babel/preset-typescript": "^7.21.4",
+    "@types/glob": "^8.1.0",
+    "@types/jest": "^29.5.1",
+    "@types/node": "^16.18.25",
+    "@types/which": "^3.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
     "clang-format": "^1.8.0",
     "eslint": "^8.30.0",
     "eslint-config-prettier": "^8.5.0",
@@ -51,6 +62,8 @@
     "jest": "^29.3.1",
     "just-scripts": "^2.1.0",
     "prettier": "^2.4.1",
+    "ts-node": "^10.9.1",
+    "typescript": "5.0.4",
     "which": "^3.0.0"
   }
 }
