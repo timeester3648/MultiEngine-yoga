@@ -6,11 +6,10 @@
  */
 
 #include <gtest/gtest.h>
-#include <yoga/YGNode.h>
 #include <yoga/Yoga.h>
 
 static YGSize _measure(
-    YGNodeRef /*node*/,
+    YGNodeConstRef /*node*/,
     float width,
     YGMeasureMode widthMode,
     float height,
@@ -449,7 +448,7 @@ TEST(YogaTest, aspect_ratio_with_measure_func) {
   YGNodeStyleSetHeight(root, 100);
 
   const YGNodeRef root_child0 = YGNodeNew();
-  root_child0->setMeasureFunc(_measure);
+  YGNodeSetMeasureFunc(root_child0, _measure);
   YGNodeStyleSetAspectRatio(root_child0, 1);
   YGNodeInsertChild(root, root_child0, 0);
 

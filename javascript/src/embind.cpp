@@ -5,14 +5,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#include "./Node.h"
+#include "./Config.h"
 #include "./Layout.h"
+#include "./Node.h"
 #include "./Size.h"
 #include "./Value.h"
-#include "./Config.h"
 
-#include <yoga/Yoga.h>
 #include <emscripten/bind.h>
+#include <yoga/Yoga.h>
 
 using namespace emscripten;
 
@@ -32,13 +32,10 @@ EMSCRIPTEN_BINDINGS(YOGA_LAYOUT) {
           "setExperimentalFeatureEnabled",
           &Config::setExperimentalFeatureEnabled)
       .function("setPointScaleFactor", &Config::setPointScaleFactor)
-      .function(
-          "setUseLegacyStretchBehaviour", &Config::setUseLegacyStretchBehaviour)
       .function("setErrata", &Config::setErrata)
       .function("setUseWebDefaults", &Config::setUseWebDefaults)
       .function(
           "isExperimentalFeatureEnabled", &Config::isExperimentalFeatureEnabled)
-      .function("useLegacyStretchBehaviour", &Config::useLegacyStretchBehaviour)
       .function("getErrata", &Config::getErrata)
       .function("useWebDefaults", &Config::useWebDefaults);
 

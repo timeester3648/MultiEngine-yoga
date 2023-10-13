@@ -9,13 +9,13 @@
 
 #include <yoga/Yoga.h>
 
-#include "./Node.h"
-#include "./Layout.h"
-#include "./Size.h"
 #include "./Config.h"
+#include "./Layout.h"
+#include "./Node.h"
+#include "./Size.h"
 
 static YGSize globalMeasureFunc(
-    YGNodeRef nodeRef,
+    YGNodeConstRef nodeRef,
     float width,
     YGMeasureMode widthMode,
     float height,
@@ -29,7 +29,7 @@ static YGSize globalMeasureFunc(
   return ygSize;
 }
 
-static void globalDirtiedFunc(YGNodeRef nodeRef) {
+static void globalDirtiedFunc(YGNodeConstRef nodeRef) {
   Node const& node = *reinterpret_cast<Node const*>(YGNodeGetContext(nodeRef));
 
   node.callDirtiedFunc();

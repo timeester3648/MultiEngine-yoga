@@ -1,10 +1,10 @@
-# Yoga [![Support Ukraine](https://img.shields.io/badge/Support-Ukraine-FFD500?style=flat&labelColor=005BBB)](https://opensource.fb.com/support-ukraine) [![CocoaPods](https://img.shields.io/cocoapods/v/YogaKit.svg)](http://cocoapods.org/pods/YogaKit) [![npm](https://img.shields.io/npm/v/yoga-layout.svg)](https://www.npmjs.com/package/yoga-layout) [![Maven Central](https://img.shields.io/maven-central/v/com.facebook.yoga/yoga)](https://search.maven.org/artifact/com.facebook.yoga/yoga)
+# Yoga [![Support Ukraine](https://img.shields.io/badge/Support-Ukraine-FFD500?style=flat&labelColor=005BBB)](https://opensource.fb.com/support-ukraine) [![CocoaPods](https://img.shields.io/cocoapods/v/Yoga.svg)](http://cocoapods.org/pods/Yoga) [![npm](https://img.shields.io/npm/v/yoga-layout.svg)](https://www.npmjs.com/package/yoga-layout) [![Maven Central](https://img.shields.io/maven-central/v/com.facebook.yoga/yoga)](https://search.maven.org/artifact/com.facebook.yoga/yoga)
 
 Yoga is an embeddable and performant flexbox layout engine with bindings for multiple languages.
 
 
 ## Building
-Yoga's main implementation targets C++ 14 with accompanying build logic in CMake. A wrapper is provided to build the main library and run unit tests.
+Yoga's main implementation targets C++ 20 with accompanying build logic in CMake. A wrapper is provided to build the main library and run unit tests.
 
 ```sh
 ./unit_tests <Debug|Release>

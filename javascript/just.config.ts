@@ -10,7 +10,6 @@
 import {
   argv,
   cleanTask,
-  eslintTask,
   logger,
   jestTask,
   option,
@@ -45,46 +44,38 @@ function defineFlavor(flavor: string, env: NodeJS.ProcessEnv) {
   );
 }
 
-defineFlavor('asmjs-async', {WASM: '0', SYNC: '0'});
-defineFlavor('asmjs-sync', {WASM: '0', SYNC: '1'});
-defineFlavor('wasm-async', {WASM: '1', SYNC: '0'});
-defineFlavor('wasm-sync', {WASM: '1', SYNC: '1'});
+defineFlavor('asmjs-async-node', {WASM: '0', SYNC: '0'});
+defineFlavor('asmjs-sync-node', {WASM: '0', SYNC: '1'});
+defineFlavor('asmjs-async-web', {WASM: '0', SYNC: '0'});
+defineFlavor('asmjs-sync-web', {WASM: '0', SYNC: '1'});
+defineFlavor('wasm-async-node', {WASM: '1', SYNC: '0'});
+defineFlavor('wasm-sync-node', {WASM: '1', SYNC: '1'});
+defineFlavor('wasm-async-web', {WASM: '1', SYNC: '0'});
+defineFlavor('wasm-sync-web', {WASM: '1', SYNC: '1'});
 
-task('cmake-build:all', cmakeBuildTask());
-task(
-  'cmake-build:async',
-  cmakeBuildTask({targets: ['asmjs-async', 'wasm-async']}),
-);
-task(
-  'cmake-build:sync',
-  cmakeBuildTask({targets: ['asmjs-sync', 'wasm-sync']}),
-);
-
-task('build', series(emcmakeGenerateTask(), 'cmake-build:all'));
+task('build', series(emcmakeGenerateTask(), cmakeBuildTask()));
 
 task(
   'test',
   series(
     emcmakeGenerateTask(),
-    series('cmake-build:asmjs-async', 'jest:asmjs-async'),
-    series('cmake-build:asmjs-sync', 'jest:asmjs-sync'),
-    series('cmake-build:wasm-async', 'jest:wasm-async'),
-    series('cmake-build:wasm-sync', 'jest:wasm-sync'),
+    series('cmake-build:asmjs-async-node', 'jest:asmjs-async-node'),
+    series('cmake-build:asmjs-sync-node', 'jest:asmjs-sync-node'),
+    series('cmake-build:wasm-async-node', 'jest:wasm-async-node'),
+    series('cmake-build:wasm-sync-node', 'jest:wasm-sync-node'),
   ),
 );
 
 task(
   'benchmark',
-  series(emcmakeGenerateTask(), 'cmake-build:sync', runBenchTask()),
-);
-
-task(
-  'lint',
-  parallel(
-    tscTask({noEmit: true}),
-    series(eslintTask({fix: argv().fix}), clangFormatTask({fix: argv().fix})),
+  series(
+    emcmakeGenerateTask(),
+    cmakeBuildTask({targets: ['asmjs-sync-node', 'wasm-sync-node']}),
+    runBenchTask(),
   ),
 );
+
+task('clang-format', clangFormatTask({fix: argv().fix}));
 
 task('prepack-package-json', async () => {
   const packageJsonPath = path.join(__dirname, 'package.json');
@@ -175,7 +166,7 @@ function emcmakeGenerateTask() {
     ];
     logger.info(['emcmake', ...args].join(' '));
 
-    return spawn(emcmake, args);
+    return spawn(emcmake, args, {stdio: 'inherit'});
   };
 }
 

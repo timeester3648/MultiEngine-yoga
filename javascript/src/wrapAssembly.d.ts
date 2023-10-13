@@ -53,18 +53,6 @@ export type Config = {
     enabled: boolean,
   ): void;
   setPointScaleFactor(factor: number): void;
-  /**
-   * @deprecated Please use "getErrata()"
-   */
-  useLegacyStretchBehaviour(): boolean;
-  /**
-   * @deprecated "setUseLegacyStretchBehaviour" will be removed in the next
-   * release. Usage should be replaced with "setErrata(ERRATA_ALL)" to opt out
-   * of all future breaking conformance fixes, or
-   * "setErrata(ERRATA_STRETCH_FLEX_BASIS)" to opt out of the specific
-   * conformance fix previously disabled by "UseLegacyStretchBehaviour".
-   */
-  setUseLegacyStretchBehaviour(useLegacyStretchBehaviour: boolean): void;
   getErrata(): Errata;
   setErrata(errata: Errata): void;
   useWebDefaults(): boolean;
@@ -81,7 +69,11 @@ export type MeasureFunction = (
 ) => Size;
 
 export type Node = {
-  calculateLayout(width?: number, height?: number, direction?: Direction): void;
+  calculateLayout(
+    width?: number | 'auto',
+    height?: number | 'auto',
+    direction?: Direction,
+  ): void;
   copyStyle(node: Node): void;
   free(): void;
   freeRecursive(): void;

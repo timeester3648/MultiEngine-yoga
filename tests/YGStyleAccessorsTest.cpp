@@ -5,12 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+#include <gtest/gtest.h>
+#include <yoga/Yoga.h>
+#include <yoga/style/Style.h>
 #include <cstdint>
 #include <type_traits>
-#include <gtest/gtest.h>
-#include <yoga/YGEnums.h>
-#include <yoga/YGStyle.h>
-#include <yoga/YGValue.h>
 
 #define ACCESSOR_TESTS_1(NAME, X) \
   style.NAME() = X;               \
@@ -31,14 +30,14 @@
 #define ACCESSOR_TESTS_N(a, b, c, d, e, COUNT, ...) ACCESSOR_TESTS_##COUNT
 #define ACCESSOR_TESTS(...) ACCESSOR_TESTS_N(__VA_ARGS__, 5, 4, 3, 2, 1)
 
-#define INDEX_ACCESSOR_TESTS_1(NAME, IDX, X)                           \
-  {                                                                    \
-    auto style = YGStyle{};                                            \
-    style.NAME()[IDX] = X;                                             \
-    ASSERT_EQ(style.NAME()[IDX], X);                                   \
-    auto asArray = decltype(std::declval<const YGStyle&>().NAME()){X}; \
-    style.NAME() = asArray;                                            \
-    ASSERT_EQ(static_cast<decltype(asArray)>(style.NAME()), asArray);  \
+#define INDEX_ACCESSOR_TESTS_1(NAME, IDX, X)                          \
+  {                                                                   \
+    auto style = Style{};                                             \
+    style.NAME()[IDX] = X;                                            \
+    ASSERT_EQ(style.NAME()[IDX], X);                                  \
+    auto asArray = decltype(std::declval<const Style&>().NAME()){X};  \
+    style.NAME() = asArray;                                           \
+    ASSERT_EQ(static_cast<decltype(asArray)>(style.NAME()), asArray); \
   }
 
 #define INDEX_ACCESSOR_TESTS_2(NAME, IDX, X, Y) \
@@ -64,118 +63,104 @@
 
 // test macro for up to 5 values. If more are needed, extend the macros above.
 #define ACCESSOR_TEST(NAME, DEFAULT_VAL, ...)      \
-  TEST(YGStyle, style_##NAME##_access) {           \
-    auto style = YGStyle{};                        \
+  TEST(Style, style_##NAME##_access) {             \
+    auto style = Style{};                          \
     ASSERT_EQ(style.NAME(), DEFAULT_VAL);          \
     ACCESSOR_TESTS(__VA_ARGS__)(NAME, __VA_ARGS__) \
   }
 
 #define INDEX_ACCESSOR_TEST(NAME, DEFAULT_VAL, IDX, ...)      \
-  TEST(YGStyle, style_##NAME##_access) {                      \
-    ASSERT_EQ(YGStyle{}.NAME()[IDX], DEFAULT_VAL);            \
+  TEST(Style, style_##NAME##_access) {                        \
+    ASSERT_EQ(Style{}.NAME()[IDX], DEFAULT_VAL);              \
     INDEX_ACCESSOR_TESTS(__VA_ARGS__)(NAME, IDX, __VA_ARGS__) \
   }
 
-namespace facebook {
-namespace yoga {
-
-using CompactValue = detail::CompactValue;
+namespace facebook::yoga {
 
 // TODO: MSVC doesn't like the macros
 #ifndef _MSC_VER
 
 ACCESSOR_TEST(
     direction,
-    YGDirectionInherit,
-    YGDirectionLTR,
-    YGDirectionRTL,
-    YGDirectionInherit);
+    Direction::Inherit,
+    Direction::LTR,
+    Direction::RTL,
+    Direction::Inherit);
 
 ACCESSOR_TEST(
     flexDirection,
-    YGFlexDirectionColumn,
-    YGFlexDirectionColumnReverse,
-    YGFlexDirectionRowReverse,
-    YGFlexDirectionRow)
+    FlexDirection::Column,
+    FlexDirection::ColumnReverse,
+    FlexDirection::RowReverse,
+    FlexDirection::Row)
 
 ACCESSOR_TEST(
     justifyContent,
-    YGJustifyFlexStart,
-    YGJustifyFlexEnd,
-    YGJustifySpaceAround,
-    YGJustifyFlexStart,
-    YGJustifySpaceEvenly)
+    Justify::FlexStart,
+    Justify::FlexEnd,
+    Justify::SpaceAround,
+    Justify::FlexStart,
+    Justify::SpaceEvenly)
 
 ACCESSOR_TEST(
     alignContent,
-    YGAlignFlexStart,
-    YGAlignAuto,
-    YGAlignFlexStart,
-    YGAlignCenter,
-    YGAlignFlexEnd,
-    YGAlignStretch)
+    Align::FlexStart,
+    Align::Auto,
+    Align::FlexStart,
+    Align::Center,
+    Align::FlexEnd,
+    Align::Stretch)
 
 ACCESSOR_TEST(
     alignItems,
-    YGAlignStretch,
-    YGAlignFlexStart,
-    YGAlignFlexEnd,
-    YGAlignBaseline,
-    YGAlignSpaceBetween,
-    YGAlignSpaceAround)
+    Align::Stretch,
+    Align::FlexStart,
+    Align::FlexEnd,
+    Align::Baseline,
+    Align::SpaceBetween,
+    Align::SpaceAround)
 
 ACCESSOR_TEST(
     alignSelf,
-    YGAlignAuto,
-    YGAlignFlexStart,
-    YGAlignCenter,
-    YGAlignAuto,
-    YGAlignFlexEnd,
-    YGAlignStretch)
+    Align::Auto,
+    Align::FlexStart,
+    Align::Center,
+    Align::Auto,
+    Align::FlexEnd,
+    Align::Stretch)
 
 ACCESSOR_TEST(
     positionType,
-    YGPositionTypeStatic,
-    YGPositionTypeAbsolute,
-    YGPositionTypeRelative,
-    YGPositionTypeStatic)
+    PositionType::Static,
+    PositionType::Absolute,
+    PositionType::Relative)
 
-ACCESSOR_TEST(
-    flexWrap,
-    YGWrapNoWrap,
-    YGWrapWrap,
-    YGWrapWrapReverse,
-    YGWrapNoWrap)
+ACCESSOR_TEST(flexWrap, Wrap::NoWrap, Wrap::Wrap, Wrap::WrapReverse)
 
-ACCESSOR_TEST(
-    overflow,
-    YGOverflowVisible,
-    YGOverflowHidden,
-    YGOverflowScroll,
-    YGOverflowVisible)
+ACCESSOR_TEST(overflow, Overflow::Visible, Overflow::Hidden, Overflow::Scroll)
 
-ACCESSOR_TEST(display, YGDisplayFlex, YGDisplayNone, YGDisplayFlex)
+ACCESSOR_TEST(display, Display::Flex, Display::None, Display::Flex)
 
 ACCESSOR_TEST(
     flex,
-    YGFloatOptional{},
-    YGFloatOptional{123.45f},
-    YGFloatOptional{-9.87f},
-    YGFloatOptional{})
+    FloatOptional{},
+    FloatOptional{123.45f},
+    FloatOptional{-9.87f},
+    FloatOptional{})
 
 ACCESSOR_TEST(
     flexGrow,
-    YGFloatOptional{},
-    YGFloatOptional{123.45f},
-    YGFloatOptional{-9.87f},
-    YGFloatOptional{})
+    FloatOptional{},
+    FloatOptional{123.45f},
+    FloatOptional{-9.87f},
+    FloatOptional{})
 
 ACCESSOR_TEST(
     flexShrink,
-    YGFloatOptional{},
-    YGFloatOptional{123.45f},
-    YGFloatOptional{-9.87f},
-    YGFloatOptional{})
+    FloatOptional{},
+    FloatOptional{123.45f},
+    FloatOptional{-9.87f},
+    FloatOptional{})
 
 ACCESSOR_TEST(
     flexBasis,
@@ -218,42 +203,14 @@ INDEX_ACCESSOR_TEST(
     CompactValue::of<YGUnitPoint>(-7777.77f),
     CompactValue::ofUndefined())
 
-INDEX_ACCESSOR_TEST(
-    dimensions,
-    CompactValue::ofAuto(),
-    YGDimensionWidth,
-    CompactValue::ofUndefined(),
-    CompactValue::ofAuto(),
-    CompactValue::of<YGUnitPoint>(7777.77f),
-    CompactValue::of<YGUnitPercent>(-100.0f))
-
-INDEX_ACCESSOR_TEST(
-    minDimensions,
-    CompactValue::ofUndefined(),
-    YGDimensionHeight,
-    CompactValue::ofAuto(),
-    CompactValue::ofUndefined(),
-    CompactValue::of<YGUnitPoint>(7777.77f),
-    CompactValue::of<YGUnitPercent>(-100.0f))
-
-INDEX_ACCESSOR_TEST(
-    maxDimensions,
-    CompactValue::ofUndefined(),
-    YGDimensionHeight,
-    CompactValue::ofAuto(),
-    CompactValue::ofUndefined(),
-    CompactValue::of<YGUnitPoint>(7777.77f),
-    CompactValue::of<YGUnitPercent>(-100.0f))
-
 ACCESSOR_TEST(
     aspectRatio,
-    YGFloatOptional{},
-    YGFloatOptional{-123.45f},
-    YGFloatOptional{9876.5f},
-    YGFloatOptional{0.0f},
-    YGFloatOptional{});
+    FloatOptional{},
+    FloatOptional{-123.45f},
+    FloatOptional{9876.5f},
+    FloatOptional{0.0f},
+    FloatOptional{});
 
 #endif
 
-} // namespace yoga
-} // namespace facebook
+} // namespace facebook::yoga

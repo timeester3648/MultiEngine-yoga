@@ -49,6 +49,7 @@ export enum Edge {
 export enum Errata {
   None = 0,
   StretchFlexBasis = 1,
+  StartingEndingEdgeFromFlexDirection = 2,
   All = 2147483647,
   Classic = 2147483646,
 }
@@ -56,7 +57,6 @@ export enum Errata {
 export enum ExperimentalFeature {
   WebFlexBasis = 0,
   AbsolutePercentageAgainstPaddingEdge = 1,
-  FixAbsoluteTrailingColumnMargin = 2,
 }
 
 export enum FlexDirection {
@@ -159,11 +159,11 @@ const constants = {
   EDGE_ALL: Edge.All,
   ERRATA_NONE: Errata.None,
   ERRATA_STRETCH_FLEX_BASIS: Errata.StretchFlexBasis,
+  ERRATA_STARTING_ENDING_EDGE_FROM_FLEX_DIRECTION: Errata.StartingEndingEdgeFromFlexDirection,
   ERRATA_ALL: Errata.All,
   ERRATA_CLASSIC: Errata.Classic,
   EXPERIMENTAL_FEATURE_WEB_FLEX_BASIS: ExperimentalFeature.WebFlexBasis,
   EXPERIMENTAL_FEATURE_ABSOLUTE_PERCENTAGE_AGAINST_PADDING_EDGE: ExperimentalFeature.AbsolutePercentageAgainstPaddingEdge,
-  EXPERIMENTAL_FEATURE_FIX_ABSOLUTE_TRAILING_COLUMN_MARGIN: ExperimentalFeature.FixAbsoluteTrailingColumnMargin,
   FLEX_DIRECTION_COLUMN: FlexDirection.Column,
   FLEX_DIRECTION_COLUMN_REVERSE: FlexDirection.ColumnReverse,
   FLEX_DIRECTION_ROW: FlexDirection.Row,

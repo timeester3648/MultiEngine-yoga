@@ -5,13 +5,19 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+pluginManagement {
+  repositories {
+    gradlePluginPortal()
+    mavenCentral()
+    google()
+  }
+}
+
 plugins { id("com.gradle.enterprise").version("3.7.1") }
 
-include(":sample", ":yoga", ":yoga-layout")
+include(":yoga")
 
 project(":yoga").projectDir = file("java")
-
-project(":yoga-layout").projectDir = file("android")
 
 rootProject.name = "yoga-github"
 
