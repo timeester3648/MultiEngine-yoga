@@ -32,10 +32,12 @@ public class YGAspectRatioTest {
     config.setExperimentalFeatureEnabled(YogaExperimentalFeature.ABSOLUTE_PERCENTAGE_AGAINST_PADDING_EDGE, true);
 
     final YogaNode root = createNode(config);
+    root.setPositionType(YogaPositionType.ABSOLUTE);
     root.setWidth(300f);
     root.setHeight(300f);
 
     final YogaNode root_child0 = createNode(config);
+    root_child0.setPositionType(YogaPositionType.RELATIVE);
     root_child0.setOverflow(YogaOverflow.SCROLL);
     root_child0.setFlexGrow(1f);
     root_child0.setFlexShrink(1f);
@@ -44,9 +46,11 @@ public class YGAspectRatioTest {
 
     final YogaNode root_child0_child0 = createNode(config);
     root_child0_child0.setFlexDirection(YogaFlexDirection.ROW);
+    root_child0_child0.setPositionType(YogaPositionType.RELATIVE);
     root_child0.addChildAt(root_child0_child0, 0);
 
     final YogaNode root_child0_child0_child0 = createNode(config);
+    root_child0_child0_child0.setPositionType(YogaPositionType.RELATIVE);
     root_child0_child0_child0.setFlexGrow(2f);
     root_child0_child0_child0.setFlexShrink(1f);
     root_child0_child0_child0.setFlexBasisPercent(0f);
@@ -54,16 +58,19 @@ public class YGAspectRatioTest {
     root_child0_child0.addChildAt(root_child0_child0_child0, 0);
 
     final YogaNode root_child0_child0_child1 = createNode(config);
+    root_child0_child0_child1.setPositionType(YogaPositionType.RELATIVE);
     root_child0_child0_child1.setWidth(5f);
     root_child0_child0.addChildAt(root_child0_child0_child1, 1);
 
     final YogaNode root_child0_child0_child2 = createNode(config);
+    root_child0_child0_child2.setPositionType(YogaPositionType.RELATIVE);
     root_child0_child0_child2.setFlexGrow(1f);
     root_child0_child0_child2.setFlexShrink(1f);
     root_child0_child0_child2.setFlexBasisPercent(0f);
     root_child0_child0.addChildAt(root_child0_child0_child2, 2);
 
     final YogaNode root_child0_child0_child2_child0 = createNode(config);
+    root_child0_child0_child2_child0.setPositionType(YogaPositionType.RELATIVE);
     root_child0_child0_child2_child0.setFlexGrow(1f);
     root_child0_child0_child2_child0.setFlexShrink(1f);
     root_child0_child0_child2_child0.setFlexBasisPercent(0f);
@@ -71,10 +78,12 @@ public class YGAspectRatioTest {
     root_child0_child0_child2.addChildAt(root_child0_child0_child2_child0, 0);
 
     final YogaNode root_child0_child0_child2_child0_child0 = createNode(config);
+    root_child0_child0_child2_child0_child0.setPositionType(YogaPositionType.RELATIVE);
     root_child0_child0_child2_child0_child0.setWidth(5f);
     root_child0_child0_child2_child0.addChildAt(root_child0_child0_child2_child0_child0, 0);
 
     final YogaNode root_child0_child0_child2_child0_child1 = createNode(config);
+    root_child0_child0_child2_child0_child1.setPositionType(YogaPositionType.RELATIVE);
     root_child0_child0_child2_child0_child1.setFlexGrow(1f);
     root_child0_child0_child2_child0_child1.setFlexShrink(1f);
     root_child0_child0_child2_child0_child1.setFlexBasisPercent(0f);

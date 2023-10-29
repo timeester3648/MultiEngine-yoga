@@ -16,6 +16,7 @@ export enum Align {
   Baseline = 5,
   SpaceBetween = 6,
   SpaceAround = 7,
+  SpaceEvenly = 8,
 }
 
 export enum Dimension {
@@ -50,6 +51,7 @@ export enum Errata {
   None = 0,
   StretchFlexBasis = 1,
   StartingEndingEdgeFromFlexDirection = 2,
+  PositionStaticBehavesLikeRelative = 4,
   All = 2147483647,
   Classic = 2147483646,
 }
@@ -141,6 +143,7 @@ const constants = {
   ALIGN_BASELINE: Align.Baseline,
   ALIGN_SPACE_BETWEEN: Align.SpaceBetween,
   ALIGN_SPACE_AROUND: Align.SpaceAround,
+  ALIGN_SPACE_EVENLY: Align.SpaceEvenly,
   DIMENSION_WIDTH: Dimension.Width,
   DIMENSION_HEIGHT: Dimension.Height,
   DIRECTION_INHERIT: Direction.Inherit,
@@ -160,6 +163,7 @@ const constants = {
   ERRATA_NONE: Errata.None,
   ERRATA_STRETCH_FLEX_BASIS: Errata.StretchFlexBasis,
   ERRATA_STARTING_ENDING_EDGE_FROM_FLEX_DIRECTION: Errata.StartingEndingEdgeFromFlexDirection,
+  ERRATA_POSITION_STATIC_BEHAVES_LIKE_RELATIVE: Errata.PositionStaticBehavesLikeRelative,
   ERRATA_ALL: Errata.All,
   ERRATA_CLASSIC: Errata.Classic,
   EXPERIMENTAL_FEATURE_WEB_FLEX_BASIS: ExperimentalFeature.WebFlexBasis,

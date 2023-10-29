@@ -120,6 +120,7 @@ JavascriptEmitter.prototype = Object.create(Emitter.prototype, {
   YGAlignStretch: {value: 'Align.Stretch'},
   YGAlignSpaceBetween: {value: 'Align.SpaceBetween'},
   YGAlignSpaceAround: {value: 'Align.SpaceAround'},
+  YGAlignSpaceEvenly: {value: 'Align.SpaceEvenly'},
   YGAlignBaseline: {value: 'Align.Baseline'},
 
   YGDirectionInherit: {value: 'Direction.Inherit'},
@@ -155,6 +156,7 @@ JavascriptEmitter.prototype = Object.create(Emitter.prototype, {
 
   YGPositionTypeAbsolute: {value: 'PositionType.Absolute'},
   YGPositionTypeRelative: {value: 'PositionType.Relative'},
+  YGPositionTypeStatic: {value: 'PositionType.Static'},
 
   YGAuto: {value: "'auto'"},
   YGUndefined: {value: 'undefined'},

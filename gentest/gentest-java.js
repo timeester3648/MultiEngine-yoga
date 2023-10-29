@@ -135,6 +135,7 @@ JavaEmitter.prototype = Object.create(Emitter.prototype, {
   YGAlignStretch: {value: 'YogaAlign.STRETCH'},
   YGAlignSpaceBetween: {value: 'YogaAlign.SPACE_BETWEEN'},
   YGAlignSpaceAround: {value: 'YogaAlign.SPACE_AROUND'},
+  YGAlignSpaceEvenly: {value: 'YogaAlign.SPACE_EVENLY'},
   YGAlignBaseline: {value: 'YogaAlign.BASELINE'},
 
   YGDirectionInherit: {value: 'YogaDirection.INHERIT'},
@@ -170,6 +171,7 @@ JavaEmitter.prototype = Object.create(Emitter.prototype, {
 
   YGPositionTypeAbsolute: {value: 'YogaPositionType.ABSOLUTE'},
   YGPositionTypeRelative: {value: 'YogaPositionType.RELATIVE'},
+  YGPositionTypeStatic: {value: 'YogaPositionType.STATIC'},
 
   YGUndefined: {value: 'YogaConstants.UNDEFINED'},
 

@@ -29,6 +29,7 @@ ENUMS = {
         "Baseline",
         "SpaceBetween",
         "SpaceAround",
+        "SpaceEvenly",
     ],
     "PositionType": ["Static", "Relative", "Absolute"],
     "Display": ["Flex", "None"],
@@ -69,6 +70,8 @@ ENUMS = {
         ("StretchFlexBasis", 1 << 0),
         # Solely uses the flex-direction to determine starting and ending edges
         ("StartingEndingEdgeFromFlexDirection", 1 << 1),
+        # Position: static behaves like position: relative within Yoga
+        ("PositionStaticBehavesLikeRelative", 1 << 2),
         # Enable all incorrect behavior (preserve compatibility)
         ("All", 0x7FFFFFFF),
         # Enable all errata except for "StretchFlexBasis" (Defaults behavior
