@@ -16,3 +16,6 @@ project "yoga"
 	includedirs {
 		"%{IncludeDir.yoga}"
 	}
+
+	filter "toolset:msc"
+		buildoptions { "/EHsc", "/GR-" }
