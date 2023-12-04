@@ -6,10 +6,10 @@
 
 Pod::Spec.new do |spec|
   spec.name = 'Yoga'
-  spec.version = '2.0.0'
+  spec.version = '0.0.0'
   spec.license =  { :type => 'MIT', :file => "LICENSE" }
-  spec.homepage = 'https://yogalayout.com/'
-  spec.documentation_url = 'https://yogalayout.com/docs'
+  spec.homepage = 'https://yogalayout.dev/'
+  spec.documentation_url = 'https://yogalayout.dev/docs'
 
   spec.summary = 'An embeddable and performant flexbox layout engine with bindings for multiple languages'
 
@@ -41,7 +41,7 @@ Pod::Spec.new do |spec|
   spec.source_files = 'yoga/**/*.{h,cpp}'
   spec.header_mappings_dir = 'yoga'
 
-  public_header_files = 'yoga/{Yoga,YGEnums,YGMacros,YGValue}.h'
+  public_header_files = 'yoga/*.h'
   spec.public_header_files = public_header_files
 
   all_header_files = 'yoga/**/*.h'

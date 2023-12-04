@@ -3,16 +3,12 @@
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
+ *
+ * @format
  */
 
-.features {
-  display: flex;
-  align-items: center;
-  padding: 2rem 0;
-  width: 100%;
-}
-
-.featureSvg {
-  height: 200px;
-  width: 200px;
-}
+export default {
+  setupFiles: ['./jest.setup.js'],
+  testRegex: '/tests/.*\\.test\\.ts$',
+  extensionsToTreatAsEsm: ['.ts'],
+};

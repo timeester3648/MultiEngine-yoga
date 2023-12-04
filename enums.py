@@ -131,10 +131,7 @@ with open(root + "/yoga/YGEnums.h", "w") as f:
     f.write("YG_EXTERN_C_BEGIN\n\n")
     items = sorted(ENUMS.items())
     for name, values in items:
-        if isinstance(values[0], tuple):
-            f.write("YG_ENUM_DECL(\n")
-        else:
-            f.write("YG_ENUM_SEQ_DECL(\n")
+        f.write("YG_ENUM_DECL(\n")
 
         f.write("    YG%s,\n" % name)
         for value in values:
@@ -169,19 +166,19 @@ for name, values in sorted(ENUMS.items()):
             ordinal = value[0] if isinstance(value, tuple) else value
             f.write(f"  {ordinal} = YG{name}{ordinal},\n")
         f.write("};\n\n")
-        f.write(
-            f"YG_DEFINE_ENUM_FLAG_OPERATORS({name})\n\n" if name in BITSET_ENUMS else ""
-        )
 
-        f.write("template <>\n")
-        f.write(f"constexpr inline int32_t ordinalCount<{name}>() {{\n")
-        f.write(f"  return {len(values)};\n")
-        f.write("} \n\n")
+        if name in BITSET_ENUMS:
+            f.write(f"YG_DEFINE_ENUM_FLAG_OPERATORS({name})\n\n")
+        else:
+            f.write("template <>\n")
+            f.write(f"constexpr inline int32_t ordinalCount<{name}>() {{\n")
+            f.write(f"  return {len(values)};\n")
+            f.write("} \n\n")
 
-        f.write("template <>\n")
-        f.write(f"constexpr inline int32_t bitCount<{name}>() {{\n")
-        f.write(f"  return {math.ceil(math.log(len(values), 2))};\n")
-        f.write("} \n\n")
+            f.write("template <>\n")
+            f.write(f"constexpr inline int32_t bitCount<{name}>() {{\n")
+            f.write(f"  return {math.ceil(math.log(len(values), 2))};\n")
+            f.write("} \n\n")
 
         f.write(f"constexpr inline {name} scopedEnum(YG{name} unscoped) {{\n")
         f.write(f"  return static_cast<{name}>(unscoped);\n")
