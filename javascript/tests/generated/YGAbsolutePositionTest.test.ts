@@ -1255,7 +1255,7 @@ test('percent_absolute_position_infinite_height', () => {
     config.free();
   }
 });
-test('absolute_layout_percentage_height_based_on_padded_parent', () => {
+test.skip('absolute_layout_percentage_height_based_on_padded_parent', () => {
   const config = Yoga.Config.create();
   let root;
 
@@ -1282,9 +1282,9 @@ test('absolute_layout_percentage_height_based_on_padded_parent', () => {
     expect(root.getComputedHeight()).toBe(100);
 
     expect(root_child0.getComputedLeft()).toBe(0);
-    expect(root_child0.getComputedTop()).toBe(10);
+    expect(root_child0.getComputedTop()).toBe(20);
     expect(root_child0.getComputedWidth()).toBe(100);
-    expect(root_child0.getComputedHeight()).toBe(50);
+    expect(root_child0.getComputedHeight()).toBe(45);
 
     root.calculateLayout(undefined, undefined, Direction.RTL);
 
@@ -1294,9 +1294,9 @@ test('absolute_layout_percentage_height_based_on_padded_parent', () => {
     expect(root.getComputedHeight()).toBe(100);
 
     expect(root_child0.getComputedLeft()).toBe(0);
-    expect(root_child0.getComputedTop()).toBe(10);
+    expect(root_child0.getComputedTop()).toBe(20);
     expect(root_child0.getComputedWidth()).toBe(100);
-    expect(root_child0.getComputedHeight()).toBe(50);
+    expect(root_child0.getComputedHeight()).toBe(45);
   } finally {
     if (typeof root !== 'undefined') {
       root.freeRecursive();
@@ -1356,7 +1356,7 @@ test('absolute_layout_percentage_height_based_on_padded_parent_and_align_items_c
     config.free();
   }
 });
-test.skip('absolute_layout_padding_left', () => {
+test('absolute_layout_padding_left', () => {
   const config = Yoga.Config.create();
   let root;
 
@@ -1405,7 +1405,7 @@ test.skip('absolute_layout_padding_left', () => {
     config.free();
   }
 });
-test.skip('absolute_layout_padding_right', () => {
+test('absolute_layout_padding_right', () => {
   const config = Yoga.Config.create();
   let root;
 
@@ -1454,7 +1454,7 @@ test.skip('absolute_layout_padding_right', () => {
     config.free();
   }
 });
-test.skip('absolute_layout_padding_top', () => {
+test('absolute_layout_padding_top', () => {
   const config = Yoga.Config.create();
   let root;
 
