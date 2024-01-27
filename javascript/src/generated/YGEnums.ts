@@ -50,16 +50,14 @@ export enum Edge {
 export enum Errata {
   None = 0,
   StretchFlexBasis = 1,
-  StartingEndingEdgeFromFlexDirection = 2,
-  PositionStaticBehavesLikeRelative = 4,
-  AbsolutePositioning = 8,
+  AbsolutePositioningIncorrect = 2,
+  AbsolutePercentAgainstInnerSize = 4,
   All = 2147483647,
   Classic = 2147483646,
 }
 
 export enum ExperimentalFeature {
   WebFlexBasis = 0,
-  AbsolutePercentageAgainstPaddingEdge = 1,
 }
 
 export enum FlexDirection {
@@ -163,13 +161,11 @@ const constants = {
   EDGE_ALL: Edge.All,
   ERRATA_NONE: Errata.None,
   ERRATA_STRETCH_FLEX_BASIS: Errata.StretchFlexBasis,
-  ERRATA_STARTING_ENDING_EDGE_FROM_FLEX_DIRECTION: Errata.StartingEndingEdgeFromFlexDirection,
-  ERRATA_POSITION_STATIC_BEHAVES_LIKE_RELATIVE: Errata.PositionStaticBehavesLikeRelative,
-  ERRATA_ABSOLUTE_POSITIONING: Errata.AbsolutePositioning,
+  ERRATA_ABSOLUTE_POSITIONING_INCORRECT: Errata.AbsolutePositioningIncorrect,
+  ERRATA_ABSOLUTE_PERCENT_AGAINST_INNER_SIZE: Errata.AbsolutePercentAgainstInnerSize,
   ERRATA_ALL: Errata.All,
   ERRATA_CLASSIC: Errata.Classic,
   EXPERIMENTAL_FEATURE_WEB_FLEX_BASIS: ExperimentalFeature.WebFlexBasis,
-  EXPERIMENTAL_FEATURE_ABSOLUTE_PERCENTAGE_AGAINST_PADDING_EDGE: ExperimentalFeature.AbsolutePercentageAgainstPaddingEdge,
   FLEX_DIRECTION_COLUMN: FlexDirection.Column,
   FLEX_DIRECTION_COLUMN_REVERSE: FlexDirection.ColumnReverse,
   FLEX_DIRECTION_ROW: FlexDirection.Row,

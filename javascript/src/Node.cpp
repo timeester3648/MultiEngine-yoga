@@ -468,3 +468,8 @@ double Node::getComputedBorder(int edge) const {
 double Node::getComputedPadding(int edge) const {
   return YGNodeLayoutGetPadding(m_node, static_cast<YGEdge>(edge));
 }
+
+void Node::setAlwaysFormsContainingBlock(bool alwaysFormsContainingBlock) {
+  return YGNodeSetAlwaysFormsContainingBlock(
+      m_node, alwaysFormsContainingBlock);
+}
