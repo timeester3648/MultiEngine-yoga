@@ -8,7 +8,7 @@ void main(MultiBuild::Workspace& workspace) {
 
 	project.include_own_required_includes(true);
 	project.add_required_project_include({
-		"./include"
+		"."
 	});
 
 	properties.files({
