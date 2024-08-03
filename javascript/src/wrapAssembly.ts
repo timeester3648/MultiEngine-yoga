@@ -95,6 +95,7 @@ export type Node = {
   getComputedRight(): number;
   getComputedTop(): number;
   getComputedWidth(): number;
+  getDirection(): Direction;
   getDisplay(): Display;
   getFlexBasis(): Value;
   getFlexDirection(): FlexDirection;
@@ -119,6 +120,8 @@ export type Node = {
   isDirty(): boolean;
   isReferenceBaseline(): boolean;
   markDirty(): void;
+  hasNewLayout(): boolean;
+  markLayoutSeen(): void;
   removeChild(child: Node): void;
   reset(): void;
   setAlignContent(alignContent: Align): void;
@@ -126,6 +129,7 @@ export type Node = {
   setAlignSelf(alignSelf: Align): void;
   setAspectRatio(aspectRatio: number | undefined): void;
   setBorder(edge: Edge, borderWidth: number | undefined): void;
+  setDirection(direction: Direction): void;
   setDisplay(display: Display): void;
   setFlex(flex: number | undefined): void;
   setFlexBasis(flexBasis: number | 'auto' | `${number}%` | undefined): void;
@@ -140,7 +144,8 @@ export type Node = {
   setHeightAuto(): void;
   setHeightPercent(height: number | undefined): void;
   setJustifyContent(justifyContent: Justify): void;
-  setGap(gutter: Gutter, gapLength: number | undefined): Value;
+  setGap(gutter: Gutter, gapLength: number | `${number}%` | undefined): Value;
+  setGapPercent(gutter: Gutter, gapLength: number | undefined): Value;
   setMargin(
     edge: Edge,
     margin: number | 'auto' | `${number}%` | undefined,
@@ -205,6 +210,7 @@ export default function wrapAssembly(lib: any): Yoga {
     'setMaxWidth',
     'setMaxHeight',
     'setPadding',
+    'setGap',
   ]) {
     const methods = {
       [Unit.Point]: lib.Node.prototype[fnName],

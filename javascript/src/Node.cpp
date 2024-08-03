@@ -104,6 +104,10 @@ void Node::setFlexDirection(int flexDirection) {
       m_node, static_cast<YGFlexDirection>(flexDirection));
 }
 
+void Node::setDirection(int direction) {
+  YGNodeStyleSetDirection(m_node, static_cast<YGDirection>(direction));
+}
+
 void Node::setFlexWrap(int flexWrap) {
   YGNodeStyleSetFlexWrap(m_node, static_cast<YGWrap>(flexWrap));
 }
@@ -236,6 +240,10 @@ void Node::setGap(int gutter, double gapLength) {
   YGNodeStyleSetGap(m_node, static_cast<YGGutter>(gutter), gapLength);
 }
 
+void Node::setGapPercent(int gutter, double gapLength) {
+  YGNodeStyleSetGapPercent(m_node, static_cast<YGGutter>(gutter), gapLength);
+}
+
 int Node::getPositionType(void) const {
   return YGNodeStyleGetPositionType(m_node);
 }
@@ -259,6 +267,10 @@ int Node::getAlignSelf(void) const {
 
 int Node::getFlexDirection(void) const {
   return YGNodeStyleGetFlexDirection(m_node);
+}
+
+int Node::getDirection(void) const {
+  return YGNodeStyleGetDirection(m_node);
 }
 
 int Node::getFlexWrap(void) const {
@@ -411,6 +423,14 @@ void Node::markDirty(void) {
 
 bool Node::isDirty(void) const {
   return YGNodeIsDirty(m_node);
+}
+
+void Node::markLayoutSeen() {
+  YGNodeSetHasNewLayout(m_node, false);
+}
+
+bool Node::hasNewLayout(void) const {
+  return YGNodeGetHasNewLayout(m_node);
 }
 
 void Node::calculateLayout(double width, double height, int direction) {

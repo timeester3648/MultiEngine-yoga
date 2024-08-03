@@ -13,17 +13,17 @@ const {
   logger,
   jestTask,
   option,
-  parallel,
   series,
   spawn,
   task,
   tscTask,
+  copyTask,
 } = require('just-scripts');
 
 const {existsSync} = require('fs');
 const {readFile, writeFile, rm} = require('fs/promises');
 
-const glob = require('glob');
+const {glob} = require('glob');
 const path = require('path');
 const which = require('which');
 
@@ -58,15 +58,32 @@ task('prepack-package-json', async () => {
   const packageJsonContents = await readFile(packageJsonPath);
   const packageJson = JSON.parse(packageJsonContents.toString('utf-8'));
 
-  recursiveReplace(packageJson, /(.\/src\/.*)\.ts/, '$1.js');
+  packageJson.main = packageJson.main.replace(
+    /^.\/src\/(.*)\.ts/,
+    './dist/src/$1.js',
+  );
+  packageJson.types = packageJson.main.replace(/(.*)\.js/, '$1.d.ts');
+
+  recursiveReplace(
+    packageJson.exports,
+    /^.\/src\/(.*)\.ts/,
+    './dist/src/$1.js',
+  );
+
   await writeFile(packageJsonPath, JSON.stringify(packageJson, null, 2));
 });
 
 task(
   'prepack',
   series(
-    parallel('build', tscTask({emitDeclarationOnly: true})),
-    babelTransformTask({dir: 'src'}),
+    'build',
+    copyTask({paths: ['binaries'], dest: 'dist/binaries'}),
+    tscTask({
+      emitDeclarationOnly: true,
+      rootDir: '.',
+      declarationDir: 'dist',
+    }),
+    babelTransformTask({src: 'src', dst: 'dist/src'}),
     'prepack-package-json',
   ),
 );
@@ -84,14 +101,14 @@ function recursiveReplace(obj, pattern, replacement) {
 function babelTransformTask(opts) {
   return () => {
     const args = [
-      opts.dir,
+      opts.src,
       '--source-maps',
       '--out-dir',
-      opts.dir,
+      opts.dst,
       '--extensions',
       '.js,.cjs,.mjs,.ts,.cts,.mts',
     ];
-    logger.info(`Transforming "${path.resolve(opts.dir)}"`);
+    logger.info(`Transforming "${path.resolve(opts.src)}"`);
 
     return spawn(node, [require.resolve('@babel/cli/bin/babel'), ...args], {
       cwd: __dirname,
@@ -151,9 +168,9 @@ function installEmsdkTask() {
       {stdio: 'inherit'},
     );
 
-    await spawn(emsdkBin, ['install', emsdkVersion], {stdio: 'inherit'});
+    await spawnShell(emsdkBin, ['install', emsdkVersion], {stdio: 'inherit'});
 
-    await spawn(emsdkBin, ['activate', emsdkVersion], {
+    await spawnShell(emsdkBin, ['activate', emsdkVersion], {
       stdio: logger.enableVerbose ? 'inherit' : 'ignore',
     });
   };
@@ -199,7 +216,7 @@ function emcmakeGenerateTask() {
     ];
     logger.info(['emcmake', ...args].join(' '));
 
-    return spawn(emcmakeBin, args, {
+    return spawnShell(emcmakeBin, args, {
       stdio: logger.enableVerbose ? 'inherit' : 'ignore',
     });
   };
@@ -217,7 +234,7 @@ function cmakeBuildTask(opts) {
     ];
     logger.info(['cmake', ...args].join(' '));
 
-    return spawn(cmake, args, {stdio: 'inherit'});
+    return spawnShell(cmake, args, {stdio: 'inherit'});
   };
 }
 
@@ -229,8 +246,13 @@ function clangFormatTask(opts) {
     ];
     logger.info(['clang-format', ...args].join(' '));
 
-    return spawn(node, [require.resolve('clang-format'), ...args], {
+    return spawnShell(node, [require.resolve('clang-format'), ...args], {
       stdio: 'inherit',
     });
   };
+}
+
+function spawnShell(cmd, args, opts) {
+  // https://github.com/nodejs/node/issues/52554
+  return spawn(cmd, args, {...opts, shell: true});
 }

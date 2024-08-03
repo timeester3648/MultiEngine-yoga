@@ -24,15 +24,15 @@ Pod::Spec.new do |spec|
   spec.module_name = 'yoga'
   spec.requires_arc = false
   spec.pod_target_xcconfig = {
-    'DEFINES_MODULE' => 'YES'
+    'DEFINES_MODULE' => 'YES',
+    'HEADER_SEARCH_PATHS' => '"$(PODS_TARGET_SRCROOT)"',
   }
+
   spec.compiler_flags = [
       '-fno-omit-frame-pointer',
       '-fexceptions',
       '-Wall',
       '-Werror',
-      '-Wextra',
-      '-Wconversion',
       '-std=c++20',
       '-fPIC'
   ]

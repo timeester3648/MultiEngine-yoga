@@ -66,15 +66,37 @@ jobs:
         with:
           toolchain: ${{ matrix.toolchain }}
 
-      - name: Build benchmark
+      - name: Build and run benchmark
         run: |
           cmake -S . -B build -G Ninja -D CMAKE_BUILD_TYPE=Release
           cmake --build build
+          ./build/benchmark ./captures
         working-directory: benchmark
 
-      - name: Run benchmark
-        run: ./build/benchmark
+      - name: Build and run benchmarklegacy
+        run: ./build/benchmarklegacy
         working-directory: benchmark
+
+  capture:
+    name: Capture [${{ matrix.toolchain }}]
+    runs-on: ${{ (matrix.toolchain == 'MSVC') && 'windows-latest' || 'ubuntu-latest'  }}
+    strategy:
+      matrix:
+        toolchain: [Clang, GCC, MSVC]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup
+        uses: ./.github/actions/setup-cpp
+        with:
+          toolchain: ${{ matrix.toolchain }}
+
+      - name: Build capture
+        run: |
+          cmake -S . -B build -G Ninja -D CMAKE_BUILD_TYPE=Release
+          cmake --build build
+        working-directory: capture
 
   clang-format:
     name: Format

@@ -30,7 +30,12 @@ CPPEmitter.prototype = Object.create(Emitter.prototype, {
 
   emitPrologue: {
     value: function () {
-      this.push(['#include <gtest/gtest.h>', '#include <yoga/Yoga.h>', '']);
+      this.push([
+        '#include <gtest/gtest.h>',
+        '#include <yoga/Yoga.h>',
+        '#include "../util/TestUtil.h"',
+        '',
+      ]);
     },
   },
 
@@ -44,7 +49,7 @@ CPPEmitter.prototype = Object.create(Emitter.prototype, {
         this.push('');
       }
 
-      this.push('const YGConfigRef config = YGConfigNew();');
+      this.push('YGConfigRef config = YGConfigNew();');
       for (const i in experiments) {
         this.push(
           'YGConfigSetExperimentalFeatureEnabled(config, YGExperimentalFeature' +
@@ -58,9 +63,7 @@ CPPEmitter.prototype = Object.create(Emitter.prototype, {
 
   emitTestTreePrologue: {
     value: function (nodeName) {
-      this.push(
-        'const YGNodeRef ' + nodeName + ' = YGNodeNewWithConfig(config);',
-      );
+      this.push('YGNodeRef ' + nodeName + ' = YGNodeNewWithConfig(config);');
     },
   },
 
@@ -500,6 +503,15 @@ CPPEmitter.prototype = Object.create(Emitter.prototype, {
           ', ' +
           toValueCpp(value) +
           ');',
+      );
+    },
+  },
+
+  YGNodeSetMeasureFunc: {
+    value: function (nodeName, innerText) {
+      this.push(`YGNodeSetContext(${nodeName}, (void*)"${innerText}");`);
+      this.push(
+        `YGNodeSetMeasureFunc(${nodeName}, &facebook::yoga::test::IntrinsicSizeMeasure);`,
       );
     },
   },

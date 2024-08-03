@@ -1,35 +1,41 @@
-# Yoga documentation and playground
+# Website
 
-This site uses [gatsby.js](https://www.gatsbyjs.org/) as static site generator. Which transforms all markdown and react code to static HTML and JS files.
+This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
-## Development
-```
-yarn install
-yarn develop
-```
-
-### Structure
-Documentation pages are generated from the Markdown files in `contents/`. The files are organized in 4 sections/folders (getting-started, properties, examples, contributing) which are dynamically listed on the docs overview page. The Markdown files can have some header files containing metadata.
+### Installation
 
 ```
----
-path: "docs/flexDirection"
-title: "Flex Direction"
-hasPlayground: true
-editableProperties: ['flexDirection']
----
+$ yarn
 ```
 
-The `path` can be any URL this page should be available at. The `title` is used as the page's HTML-title and when referencing the file from the documentation overview. There are two kinds of templates for a page: with and without playground. `hasPlayground` selects the corresponding template (`src/templates/{with|without}Playground.js`). When using `hasPlayground: true`, `editableProperties` can list all Yoga properties which are editable in the playground.
+### Local Development
 
-### Design
-We are using [antd](https://ant.design) for various UI elements. See their documentation for the components available. `gatsby-config.js` can be used to overwrite LESS-variables from antd.
-
-For styling react components we create a CSS-file with the same name next to each component and import it in the component. E.g. there is `index.js` and `index.css`. In the react-component we import the stylesheet: `import './index.css'`.
-
-## Build
-To generate the static files run:
 ```
-yarn build
+$ yarn start
 ```
-The output will be in `public/` and can be published on GitHub pages.
+
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+
+### Build
+
+```
+$ yarn build
+```
+
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
+
+### Deployment
+
+Using SSH:
+
+```
+$ USE_SSH=true yarn deploy
+```
+
+Not using SSH:
+
+```
+$ GIT_USER=<Your GitHub username> yarn deploy
+```
+
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.

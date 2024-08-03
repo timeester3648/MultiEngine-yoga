@@ -83,6 +83,7 @@ class Node {
   void setFlexDirection(int flexDirection);
   void setFlexWrap(int flexWrap);
   void setJustifyContent(int justifyContent);
+  void setDirection(int direction);
 
   void setMargin(int edge, double margin);
   void setMarginPercent(int edge, double margin);
@@ -123,6 +124,7 @@ class Node {
   void setPaddingPercent(int edge, double padding);
 
   void setGap(int gutter, double gapLength);
+  void setGapPercent(int gutter, double gapLength);
 
  public: // Style getters
   int getPositionType(void) const;
@@ -134,6 +136,7 @@ class Node {
   int getFlexDirection(void) const;
   int getFlexWrap(void) const;
   int getJustifyContent(void) const;
+  int getDirection(void) const;
 
   Value getMargin(int edge) const;
 
@@ -195,6 +198,8 @@ class Node {
  public: // Dirtiness accessors
   void markDirty(void);
   bool isDirty(void) const;
+  void markLayoutSeen();
+  bool hasNewLayout(void) const;
 
  public: // Layout mutators
   void calculateLayout(double width, double height, int direction);
