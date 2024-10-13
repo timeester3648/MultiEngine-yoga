@@ -21,6 +21,23 @@ function toMethodName(value) {
   return '';
 }
 
+function keywordMethod(methodPrefix, nodeName, value) {
+  const methodSuffix = toMethodName(value);
+  if (methodSuffix == 'Auto') {
+    return nodeName + '.' + methodPrefix + methodSuffix + '();';
+  } else {
+    return (
+      nodeName +
+      '.' +
+      methodPrefix +
+      methodSuffix +
+      '(' +
+      toValueJava(value) +
+      'f);'
+    );
+  }
+}
+
 const JavaEmitter = function () {
   Emitter.call(this, 'java', '  ');
 };
@@ -184,6 +201,9 @@ JavaEmitter.prototype = Object.create(Emitter.prototype, {
   YGWrapWrap: {value: 'YogaWrap.WRAP'},
   YGWrapWrapReverse: {value: 'YogaWrap.WRAP_REVERSE'},
 
+  YGBoxSizingBorderBox: {value: 'YogaBoxSizing.BORDER_BOX'},
+  YGBoxSizingContentBox: {value: 'YogaBoxSizing.CONTENT_BOX'},
+
   YGNodeCalculateLayout: {
     value: function (node, dir, _experiments) {
       this.push(node + '.setDirection(' + dir + ');');
@@ -270,14 +290,7 @@ JavaEmitter.prototype = Object.create(Emitter.prototype, {
 
   YGNodeStyleSetFlexBasis: {
     value: function (nodeName, value) {
-      this.push(
-        nodeName +
-          '.setFlexBasis' +
-          toMethodName(value) +
-          '(' +
-          toValueJava(value) +
-          'f);',
-      );
+      this.push(keywordMethod('setFlexBasis', nodeName, value));
     },
   },
 
@@ -305,19 +318,6 @@ JavaEmitter.prototype = Object.create(Emitter.prototype, {
     },
   },
 
-  YGNodeStyleSetHeight: {
-    value: function (nodeName, value) {
-      this.push(
-        nodeName +
-          '.setHeight' +
-          toMethodName(value) +
-          '(' +
-          toValueJava(value) +
-          'f);',
-      );
-    },
-  },
-
   YGNodeStyleSetJustifyContent: {
     value: function (nodeName, value) {
       this.push(nodeName + '.setJustifyContent(' + toValueJava(value) + ');');
@@ -342,6 +342,18 @@ JavaEmitter.prototype = Object.create(Emitter.prototype, {
           valueStr +
           ');',
       );
+    },
+  },
+
+  YGNodeStyleSetHeight: {
+    value: function (nodeName, value) {
+      this.push(keywordMethod('setHeight', nodeName, value));
+    },
+  },
+
+  YGNodeStyleSetWidth: {
+    value: function (nodeName, value) {
+      this.push(keywordMethod('setWidth', nodeName, value));
     },
   },
 
@@ -420,15 +432,21 @@ JavaEmitter.prototype = Object.create(Emitter.prototype, {
 
   YGNodeStyleSetPosition: {
     value: function (nodeName, edge, value) {
+      let valueStr = toValueJava(value);
+
+      if (valueStr == 'YogaConstants.AUTO') {
+        valueStr = '';
+      } else {
+        valueStr = ', ' + valueStr + 'f';
+      }
       this.push(
         nodeName +
           '.setPosition' +
           toMethodName(value) +
           '(' +
           edge +
-          ', ' +
-          toValueJava(value) +
-          'f);',
+          valueStr +
+          ');',
       );
     },
   },
@@ -436,19 +454,6 @@ JavaEmitter.prototype = Object.create(Emitter.prototype, {
   YGNodeStyleSetPositionType: {
     value: function (nodeName, value) {
       this.push(nodeName + '.setPositionType(' + toValueJava(value) + ');');
-    },
-  },
-
-  YGNodeStyleSetWidth: {
-    value: function (nodeName, value) {
-      this.push(
-        nodeName +
-          '.setWidth' +
-          toMethodName(value) +
-          '(' +
-          toValueJava(value) +
-          'f);',
-      );
     },
   },
 
@@ -464,6 +469,12 @@ JavaEmitter.prototype = Object.create(Emitter.prototype, {
           toValueJava(value) +
           'f);',
       );
+    },
+  },
+
+  YGNodeStyleSetBoxSizing: {
+    value: function (nodeName, value) {
+      this.push(nodeName + '.setBoxSizing(' + toValueJava(value) + ');');
     },
   },
 

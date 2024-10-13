@@ -12,13 +12,30 @@ function toValueCpp(value) {
   return n + (Number(n) == n && n % 1 !== 0 ? 'f' : '');
 }
 
-function toFunctionName(value) {
+function toFunctionNameCpp(value) {
   if (value.indexOf('%') >= 0) {
     return 'Percent';
   } else if (value.indexOf('Auto') >= 0) {
     return 'Auto';
   }
   return '';
+}
+
+function keywordFunctionCpp(functionPrefix, nodeName, value) {
+  const functionSuffix = toFunctionNameCpp(value);
+  if (functionSuffix == 'Auto') {
+    return functionPrefix + functionSuffix + '(' + nodeName + ');';
+  } else {
+    return (
+      functionPrefix +
+      functionSuffix +
+      '(' +
+      nodeName +
+      ', ' +
+      toValueCpp(value) +
+      ');'
+    );
+  }
 }
 
 const CPPEmitter = function () {
@@ -136,6 +153,9 @@ CPPEmitter.prototype = Object.create(Emitter.prototype, {
   YGWrapWrap: {value: 'YGWrapWrap'},
   YGWrapWrapReverse: {value: 'YGWrapWrapReverse'},
 
+  YGBoxSizingBorderBox: {value: 'YGBoxSizingBorderBox'},
+  YGBoxSizingContentBox: {value: 'YGBoxSizingContentBox'},
+
   YGUndefined: {value: 'YGUndefined'},
 
   YGDisplayFlex: {value: 'YGDisplayFlex'},
@@ -228,7 +248,7 @@ CPPEmitter.prototype = Object.create(Emitter.prototype, {
     value: function (nodeName, value) {
       this.push(
         'YGNodeStyleSetAspectRatio' +
-          toFunctionName(value) +
+          toFunctionNameCpp(value) +
           '(' +
           nodeName +
           ', ' +
@@ -270,15 +290,7 @@ CPPEmitter.prototype = Object.create(Emitter.prototype, {
 
   YGNodeStyleSetFlexBasis: {
     value: function (nodeName, value) {
-      this.push(
-        'YGNodeStyleSetFlexBasis' +
-          toFunctionName(value) +
-          '(' +
-          nodeName +
-          ', ' +
-          toValueCpp(value) +
-          ');',
-      );
+      this.push(keywordFunctionCpp('YGNodeStyleSetFlexBasis', nodeName, value));
     },
   },
 
@@ -322,20 +334,6 @@ CPPEmitter.prototype = Object.create(Emitter.prototype, {
     },
   },
 
-  YGNodeStyleSetHeight: {
-    value: function (nodeName, value) {
-      this.push(
-        'YGNodeStyleSetHeight' +
-          toFunctionName(value) +
-          '(' +
-          nodeName +
-          ', ' +
-          toValueCpp(value) +
-          ');',
-      );
-    },
-  },
-
   YGNodeStyleSetJustifyContent: {
     value: function (nodeName, value) {
       this.push(
@@ -358,7 +356,7 @@ CPPEmitter.prototype = Object.create(Emitter.prototype, {
       }
       this.push(
         'YGNodeStyleSetMargin' +
-          toFunctionName(value) +
+          toFunctionNameCpp(value) +
           '(' +
           nodeName +
           ', ' +
@@ -369,11 +367,23 @@ CPPEmitter.prototype = Object.create(Emitter.prototype, {
     },
   },
 
+  YGNodeStyleSetHeight: {
+    value: function (nodeName, value) {
+      this.push(keywordFunctionCpp('YGNodeStyleSetHeight', nodeName, value));
+    },
+  },
+
+  YGNodeStyleSetWidth: {
+    value: function (nodeName, value) {
+      this.push(keywordFunctionCpp('YGNodeStyleSetWidth', nodeName, value));
+    },
+  },
+
   YGNodeStyleSetMaxHeight: {
     value: function (nodeName, value) {
       this.push(
         'YGNodeStyleSetMaxHeight' +
-          toFunctionName(value) +
+          toFunctionNameCpp(value) +
           '(' +
           nodeName +
           ', ' +
@@ -387,7 +397,7 @@ CPPEmitter.prototype = Object.create(Emitter.prototype, {
     value: function (nodeName, value) {
       this.push(
         'YGNodeStyleSetMaxWidth' +
-          toFunctionName(value) +
+          toFunctionNameCpp(value) +
           '(' +
           nodeName +
           ', ' +
@@ -401,7 +411,7 @@ CPPEmitter.prototype = Object.create(Emitter.prototype, {
     value: function (nodeName, value) {
       this.push(
         'YGNodeStyleSetMinHeight' +
-          toFunctionName(value) +
+          toFunctionNameCpp(value) +
           '(' +
           nodeName +
           ', ' +
@@ -415,7 +425,7 @@ CPPEmitter.prototype = Object.create(Emitter.prototype, {
     value: function (nodeName, value) {
       this.push(
         'YGNodeStyleSetMinWidth' +
-          toFunctionName(value) +
+          toFunctionNameCpp(value) +
           '(' +
           nodeName +
           ', ' +
@@ -437,7 +447,7 @@ CPPEmitter.prototype = Object.create(Emitter.prototype, {
     value: function (nodeName, edge, value) {
       this.push(
         'YGNodeStyleSetPadding' +
-          toFunctionName(value) +
+          toFunctionNameCpp(value) +
           '(' +
           nodeName +
           ', ' +
@@ -451,15 +461,20 @@ CPPEmitter.prototype = Object.create(Emitter.prototype, {
 
   YGNodeStyleSetPosition: {
     value: function (nodeName, edge, value) {
+      let valueStr = toValueCpp(value);
+      if (valueStr != 'YGAuto') {
+        valueStr = ', ' + valueStr;
+      } else {
+        valueStr = '';
+      }
       this.push(
         'YGNodeStyleSetPosition' +
-          toFunctionName(value) +
+          toFunctionNameCpp(value) +
           '(' +
           nodeName +
           ', ' +
           edge +
-          ', ' +
-          toValueCpp(value) +
+          valueStr +
           ');',
       );
     },
@@ -477,25 +492,11 @@ CPPEmitter.prototype = Object.create(Emitter.prototype, {
     },
   },
 
-  YGNodeStyleSetWidth: {
-    value: function (nodeName, value) {
-      this.push(
-        'YGNodeStyleSetWidth' +
-          toFunctionName(value) +
-          '(' +
-          nodeName +
-          ', ' +
-          toValueCpp(value) +
-          ');',
-      );
-    },
-  },
-
   YGNodeStyleSetGap: {
     value: function (nodeName, gap, value) {
       this.push(
         'YGNodeStyleSetGap' +
-          toFunctionName(value) +
+          toFunctionNameCpp(value) +
           '(' +
           nodeName +
           ', ' +
@@ -503,6 +504,14 @@ CPPEmitter.prototype = Object.create(Emitter.prototype, {
           ', ' +
           toValueCpp(value) +
           ');',
+      );
+    },
+  },
+
+  YGNodeStyleSetBoxSizing: {
+    value: function (nodeName, value) {
+      this.push(
+        'YGNodeStyleSetBoxSizing(' + nodeName + ', ' + toValueCpp(value) + ');',
       );
     },
   },
