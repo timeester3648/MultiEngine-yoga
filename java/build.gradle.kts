@@ -23,13 +23,14 @@ android {
   namespace = "com.facebook.yoga"
   compileSdk = 35
   buildToolsVersion = "35.0.0"
-  ndkVersion = "26.0.10792818"
+  ndkVersion = "27.1.12297006"
 
   defaultConfig {
     minSdk = 21
     consumerProguardFiles("proguard-rules.pro")
 
     ndk { abiFilters.addAll(setOf("x86", "x86_64", "armeabi-v7a", "arm64-v8a")) }
+    externalNativeBuild { cmake { arguments("-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON") } }
   }
 
   externalNativeBuild { cmake { path("CMakeLists.txt") } }

@@ -49,9 +49,6 @@ struct FlexLine {
   // the flexible children.
   const float sizeConsumed{0.0f};
 
-  // The index of the first item beyond the current line.
-  const size_t endOfLineIndex{0};
-
   // Number of edges along the line flow with an auto margin.
   const size_t numberOfAutoMargins{0};
 
@@ -69,10 +66,10 @@ FlexLine calculateFlexLine(
     yoga::Node* node,
     Direction ownerDirection,
     float ownerWidth,
-    float mainAxisownerSize,
+    float mainAxisOwnerSize,
     float availableInnerWidth,
     float availableInnerMainDim,
-    size_t startOfLineIndex,
+    Node::LayoutableChildren::Iterator& iterator,
     size_t lineCount);
 
 } // namespace facebook::yoga

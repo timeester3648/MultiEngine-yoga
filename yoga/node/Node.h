@@ -12,6 +12,7 @@
 #include <vector>
 
 #include <yoga/Yoga.h>
+#include <yoga/node/LayoutableChildren.h>
 
 #include <yoga/config/Config.h>
 #include <yoga/enums/Dimension.h>
@@ -31,6 +32,7 @@ namespace facebook::yoga {
 
 class YG_EXPORT Node : public ::YGNode {
  public:
+  using LayoutableChildren = yoga::LayoutableChildren<Node>;
   Node();
   explicit Node(const Config* config);
 
@@ -144,6 +146,24 @@ class YG_EXPORT Node : public ::YGNode {
     return children_.size();
   }
 
+  LayoutableChildren getLayoutChildren() const {
+    return LayoutableChildren(this);
+  }
+
+  size_t getLayoutChildCount() const {
+    if (contentsChildrenCount_ == 0) {
+      return children_.size();
+    } else {
+      size_t count = 0;
+      for (auto iter = getLayoutChildren().begin();
+           iter != getLayoutChildren().end();
+           iter++) {
+        count++;
+      }
+      return count;
+    }
+  }
+
   const Config* getConfig() const {
     return config_;
   }
@@ -152,7 +172,7 @@ class YG_EXPORT Node : public ::YGNode {
     return isDirty_;
   }
 
-  Style::Length getProcessedDimension(Dimension dimension) const {
+  Style::SizeLength getProcessedDimension(Dimension dimension) const {
     return processedDimensions_[static_cast<size_t>(dimension)];
   }
 
@@ -239,7 +259,7 @@ class YG_EXPORT Node : public ::YGNode {
       uint32_t computedFlexBasisGeneration);
   void setLayoutMeasuredDimension(float measuredDimension, Dimension dimension);
   void setLayoutHadOverflow(bool hadOverflow);
-  void setLayoutDimension(float LengthValue, Dimension dimension);
+  void setLayoutDimension(float lengthValue, Dimension dimension);
   void setLayoutDirection(Direction direction);
   void setLayoutMargin(float margin, PhysicalEdge edge);
   void setLayoutBorder(float border, PhysicalEdge edge);
@@ -248,7 +268,7 @@ class YG_EXPORT Node : public ::YGNode {
   void setPosition(Direction direction, float ownerWidth, float ownerHeight);
 
   // Other methods
-  Style::Length processFlexBasis() const;
+  Style::SizeLength processFlexBasis() const;
   FloatOptional resolveFlexBasis(
       Direction direction,
       FlexDirection flexDirection,
@@ -298,11 +318,12 @@ class YG_EXPORT Node : public ::YGNode {
   Style style_;
   LayoutResults layout_;
   size_t lineIndex_ = 0;
+  size_t contentsChildrenCount_ = 0;
   Node* owner_ = nullptr;
   std::vector<Node*> children_;
   const Config* config_;
-  std::array<Style::Length, 2> processedDimensions_{
-      {StyleLength::undefined(), StyleLength::undefined()}};
+  std::array<Style::SizeLength, 2> processedDimensions_{
+      {StyleSizeLength::undefined(), StyleSizeLength::undefined()}};
 };
 
 inline Node* resolveRef(const YGNodeRef ref) {

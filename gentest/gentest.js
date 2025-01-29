@@ -533,7 +533,11 @@ function setupTestTree(
   }
 
   if (node.innerText && node.children.length === 0) {
-    e.YGNodeSetMeasureFunc(nodeName, node.innerText);
+    e.YGNodeSetMeasureFunc(
+      nodeName,
+      node.innerText,
+      flexDirectionValue(e, node.style['flex-direction']),
+    );
   }
 
   for (let i = 0; i < node.children.length; i++) {
@@ -654,6 +658,13 @@ function pointValue(e, value) {
       return e.YGAuto;
     case 'undefined':
       return e.YGUndefined;
+    case 'max-content':
+      return e.YGMaxContent;
+    case 'fit-content':
+      return e.YGFitContent;
+    case 'stretch':
+    case '-webkit-fill-available':
+      return e.YGStretch;
     default:
       return value;
   }
@@ -665,6 +676,8 @@ function displayValue(e, value) {
       return e.YGDisplayFlex;
     case 'none':
       return e.YGDisplayNone;
+    case 'contents':
+      return e.YGDisplayContents;
   }
 }
 
