@@ -74,6 +74,9 @@ local.properties
 # Docusarus build
 .docusaurus
 
+# Android Studio
+.idea
+
 # exclude project files
 **.sln
 **.vcxproj

@@ -70,15 +70,18 @@ TEST(YogaTest, rounding_value) {
   ASSERT_FLOAT_EQ(-3, YGRoundValueToPixelGrid(-3, 1.0, false, true));
 
   // NAN is treated as expected:
-  ASSERT_TRUE(std::isnan(YGRoundValueToPixelGrid(
-      std::numeric_limits<double>::quiet_NaN(), 1.5, false, false)));
-  ASSERT_TRUE(std::isnan(YGRoundValueToPixelGrid(
-      1.5, std::numeric_limits<double>::quiet_NaN(), false, false)));
-  ASSERT_TRUE(std::isnan(YGRoundValueToPixelGrid(
-      std::numeric_limits<double>::quiet_NaN(),
-      std::numeric_limits<double>::quiet_NaN(),
-      false,
-      false)));
+  ASSERT_TRUE(
+      std::isnan(YGRoundValueToPixelGrid(
+          std::numeric_limits<double>::quiet_NaN(), 1.5, false, false)));
+  ASSERT_TRUE(
+      std::isnan(YGRoundValueToPixelGrid(
+          1.5, std::numeric_limits<double>::quiet_NaN(), false, false)));
+  ASSERT_TRUE(
+      std::isnan(YGRoundValueToPixelGrid(
+          std::numeric_limits<double>::quiet_NaN(),
+          std::numeric_limits<double>::quiet_NaN(),
+          false,
+          false)));
 }
 
 static YGSize measureText(
@@ -160,4 +163,24 @@ TEST(YogaTest, per_node_point_scale_factor) {
   YGConfigFree(config1);
   YGConfigFree(config2);
   YGConfigFree(config3);
+}
+
+TEST(YogaTest, raw_layout_dimensions) {
+  YGConfigRef config = YGConfigNew();
+  YGConfigSetPointScaleFactor(config, 0.5f);
+
+  YGNodeRef root = YGNodeNewWithConfig(config);
+  YGNodeStyleSetWidth(root, 11.5f);
+  YGNodeStyleSetHeight(root, 9.5f);
+
+  YGNodeCalculateLayout(root, YGUndefined, YGUndefined, YGDirectionLTR);
+
+  ASSERT_EQ(YGNodeLayoutGetWidth(root), 12.0f);
+  ASSERT_EQ(YGNodeLayoutGetHeight(root), 10.0f);
+  ASSERT_EQ(YGNodeLayoutGetRawWidth(root), 11.5f);
+  ASSERT_EQ(YGNodeLayoutGetRawHeight(root), 9.5f);
+
+  YGNodeFreeRecursive(root);
+
+  YGConfigFree(config);
 }
